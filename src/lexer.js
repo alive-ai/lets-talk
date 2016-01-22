@@ -1,8 +1,8 @@
 
 var puctuation = [
-	'"', '\'', ',', ';', '.', '?', '!', '(', ')', '+'
+	'"', '\'', ',', ';', '.', '?', '!', '(', ')', '+', '%', '€', '$', '/', ':', '='
 ];
-
+var num = ['0','1','2','3','4','5','6','7','8','9'];
 var wordBreak = [
 	'-', ' ', '\t', '\r', '\n'
 ];
@@ -13,6 +13,7 @@ var wordBreak = [
 function getWordsItems(text) {
 	var items = [];
 	var item = '';
+	var minus = false;
 	for(var offset = 0; offset < text.length; offset ++) {
 		var char = text[offset];
 		if (char === '\'' && item.length === 1) {
@@ -33,13 +34,23 @@ function getWordsItems(text) {
 					items.push(item);
 					item = '';
 				}
+				minus = false;
 				items.push(char);
 			} else if (wordBreak.indexOf(char) !== -1) {
+				if (char === '-') {
+					minus = true;
+				}
 				if (item) {
 					items.push(item);
 					item = '';
 				}
 			} else {
+				if (minus) {
+					if (num.indexOf(char) !== -1) {
+						items.push('-');
+					}
+					minus = false;
+				}
 				item += char;
 			}
 		}
@@ -67,7 +78,8 @@ module.exports = function(string) {
 
 	for(var i = 0; i < words.length; i++) {
 		var item = words[i];
-		if (item === '?' || item === '.' || item === '!' || item === ';') {
+		if (item === '.' || item === '?' || item === '!' || item === ';' || item === ':' || item === '/') {
+			if (item === '/') item = ';'; // they are synonyms
 			sentences[sentenceIndex].mode = item;
 			sentenceIndex ++;
 			sentences.push({
