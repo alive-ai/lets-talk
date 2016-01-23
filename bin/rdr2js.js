@@ -102,15 +102,17 @@ function visitNode(node, tab) {
 	for(var i = 0; i < node.conditions.length; i++) {
 		conditions.push('reader.' + node.conditions[i][1] + '("' + node.conditions[i][2] + '")');
 	}
-	var code = tab + 'if (' + conditions.join(' && ') + ') {\n';
 	if (node.childs.length > 0) {
+		var code = tab + 'if (' + conditions.join(' && ') + ') {\n';
 		for(var i in node.childs) {
 			code += visitNode(node.childs[i], tab + '\t');
 		}
+		code += tab + '\treturn "' + node.conclusion[2] + '";\n';
+		code += tab + '}\n';
+		return code;
+	} else {
+		return tab + 'if (' + conditions.join(' && ') + ') return "' + node.conclusion[2] + '";\n';
 	}
-	code += tab + '\treturn "' + node.conclusion[2] + '";\n';
-	code += tab + '}\n';
-	return code;
 }
 
 var T_NAME = 1;
