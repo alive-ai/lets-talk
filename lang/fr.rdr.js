@@ -1,5 +1,5 @@
 /**
- * File Generated From data/pos/french.rdr at Sat Jan 23 2016 18:02:20 GMT+0100 (Paris, Madrid)
+ * File Generated From data/pos/french.rdr at Sat Jan 23 2016 20:41:23 GMT+0100 (Paris, Madrid)
  * by Lets-Talk engine : https://github.com/ichiriac/lets-talk
  * Licensed under MIT by Ioan CHIRIAC
  * Based on the great work of Dat Quoc Nguyen, Dai Quoc Nguyen, Dang Duc Pham and Son Bao Pham
