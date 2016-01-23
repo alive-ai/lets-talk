@@ -100,7 +100,16 @@ reader.on('line', function(line) {
 function visitNode(node, tab) {
 	var conditions = [];
 	for(var i = 0; i < node.conditions.length; i++) {
-		conditions.push('reader.' + node.conditions[i][1] + '("' + node.conditions[i][2] + '")');
+		switch(node.conditions[i][1]) {
+			// avoid a call instruction (these should be dirrectly defined)
+			case 'word':
+			case 'tag':
+				conditions.push('reader.' + node.conditions[i][1] + ' === "' + node.conditions[i][2] + '"');			
+				break;
+			// lazy lookup calls
+			default:
+				conditions.push('reader.' + node.conditions[i][1] + '("' + node.conditions[i][2] + '")');			
+		}
 	}
 	if (node.childs.length > 0) {
 		var code = tab + 'if (' + conditions.join(' && ') + ') {\n';
