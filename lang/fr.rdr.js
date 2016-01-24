@@ -1,1479 +1,1479 @@
 /**
- * File Generated From data/pos/french.rdr at Sat Jan 23 2016 20:41:23 GMT+0100 (Paris, Madrid)
+ * File Generated From data/pos/french.rdr at Sun Jan 24 2016 12:56:12 GMT+0100 (Paris, Madrid)
  * by Lets-Talk engine : https://github.com/ichiriac/lets-talk
  * Licensed under MIT by Ioan CHIRIAC
  * Based on the great work of Dat Quoc Nguyen, Dai Quoc Nguyen, Dang Duc Pham and Son Bao Pham
  */
-module.exports = function(reader) {
-	if (reader.tag === "A") {
-		if (reader.nextWord1("%")) return "D";
-		if (reader.prevTag1("D") && reader.nextTag1("P")) {
-			if (reader.word === "autre") {
-				if (reader.prevWord2("d'")) return "A";
+module.exports = function(r) {
+	if (r.t=="A") {
+		if (r.n(1,0,"%")) return "D";
+		if (r.n(-1,1,"D") && r.n(1,1,"P")) {
+			if (r.w=="autre") {
+				if (r.n(-2,0,"d'")) return "A";
 				return "PRO";
 			}
-			if (reader.prevWord1("la") && reader.word === "première") return "A";
-			if (reader.word === "dernier" && reader.nextTag1("P")) return "A";
-			if (reader.prevTag1("D") && reader.word === "seul") return "A";
-			if (reader.prevTag1("D") && reader.word === "premiers" && reader.nextTag1("P")) return "A";
-			if (reader.word === "meilleur" && reader.nextTag1("P") && reader.nextTag2("N")) return "A";
-			if (reader.suffixL3("ule")) return "A";
-			if (reader.suffixL4("ères")) return "A";
-			if (reader.prevWord1("Le") && reader.nextWord1("à")) return "A";
-			if (reader.prevTag1("D") && reader.word === "deuxième" && reader.nextTag1("P")) return "A";
-			if (reader.word === "moindre" && reader.nextTag1("P")) return "A";
-			if (reader.word === "centrale" && reader.nextWord1("de") && reader.nextWord2("Mme")) return "A";
-			if (reader.word === "seuls" && reader.nextWord1("à")) return "A";
-			if (reader.prevWord2("numéro")) return "A";
-			if (reader.word === "dernière" && reader.nextWord1("en")) return "A";
-			if (reader.prevWord2("été")) return "A";
-			if (reader.word === "premier" && reader.nextWord1("de") && reader.nextWord2("ces")) return "A";
-			if (reader.word === "premier" && reader.nextWord1("d'")) return "A";
-			if (reader.word === "second" && reader.nextWord1("à")) return "A";
+			if (r.w=="première" && r.n(-1,0,"la")) return "A";
+			if (r.w=="dernier" && r.n(1,1,"P")) return "A";
+			if (r.w=="seul" && r.n(-1,1,"D")) return "A";
+			if (r.w=="premiers" && r.n(-1,1,"D") && r.n(1,1,"P")) return "A";
+			if (r.w=="meilleur" && r.n(1,1,"P") && r.n(2,1,"N")) return "A";
+			if (r.s(-3,"ule")) return "A";
+			if (r.s(-4,"ères")) return "A";
+			if (r.n(-1,0,"Le") && r.n(1,0,"à")) return "A";
+			if (r.w=="deuxième" && r.n(-1,1,"D") && r.n(1,1,"P")) return "A";
+			if (r.w=="moindre" && r.n(1,1,"P")) return "A";
+			if (r.w=="centrale" && r.n(1,0,"de") && r.n(2,0,"Mme")) return "A";
+			if (r.w=="seuls" && r.n(1,0,"à")) return "A";
+			if (r.n(-2,0,"numéro")) return "A";
+			if (r.w=="dernière" && r.n(1,0,"en")) return "A";
+			if (r.n(-2,0,"été")) return "A";
+			if (r.w=="premier" && r.n(1,0,"de") && r.n(2,0,"ces")) return "A";
+			if (r.w=="premier" && r.n(1,0,"d'")) return "A";
+			if (r.w=="second" && r.n(1,0,"à")) return "A";
 			return "N";
 		}
-		if (reader.prevTag1("P") && reader.nextTag1("PONCT")) {
-			if (reader.prevTag1("P") && reader.word === "autres") {
-				if (reader.word === "autres" && reader.nextWord1("''")) return "A";
-				if (reader.prevWord2("que")) return "A";
+		if (r.n(-1,1,"P") && r.n(1,1,"PONCT")) {
+			if (r.w=="autres" && r.n(-1,1,"P")) {
+				if (r.w=="autres" && r.n(1,0,"''")) return "A";
+				if (r.n(-2,0,"que")) return "A";
 				return "PRO";
 			}
-			if (reader.word === "tous" && reader.nextTag1("PONCT")) return "PRO";
-			if (reader.prevWord1("y-compris")) return "A";
-			if (reader.prevWord1("comme") && reader.nextWord1(",")) return "A";
-			if (reader.prevWord2(";")) return "A";
-			if (reader.prevWord1("du") && reader.nextWord1("-")) return "A";
-			if (reader.suffixL3("ant")) return "A";
-			if (reader.word === "second" && reader.nextWord1(",")) return "A";
-			if (reader.prevWord1("du") && reader.word === "neuf") return "A";
-			if (reader.prevWord1("de-type")) return "A";
-			if (reader.prevWord1("De")) {
-				if (reader.word === "même" && reader.nextWord1(",")) return "ADV";
+			if (r.w=="tous" && r.n(1,1,"PONCT")) return "PRO";
+			if (r.n(-1,0,"y-compris")) return "A";
+			if (r.n(-1,0,"comme") && r.n(1,0,",")) return "A";
+			if (r.n(-2,0,";")) return "A";
+			if (r.n(-1,0,"du") && r.n(1,0,"-")) return "A";
+			if (r.s(-3,"ant")) return "A";
+			if (r.w=="second" && r.n(1,0,",")) return "A";
+			if (r.w=="neuf" && r.n(-1,0,"du")) return "A";
+			if (r.n(-1,0,"de-type")) return "A";
+			if (r.n(-1,0,"De")) {
+				if (r.w=="même" && r.n(1,0,",")) return "ADV";
 				return "A";
 			}
-			if (reader.prevWord1("des") && reader.nextWord1("-")) return "A";
-			if (reader.word === "fameux" && reader.nextWord1("''")) return "A";
-			if (reader.prevTag1("P") && reader.word === "premier" && reader.nextTag1("PONCT")) return "A";
-			if (reader.prevTag1("P") && reader.word === "autre" && reader.nextTag1("PONCT")) return "A";
-			if (reader.nextWord1("!")) return "A";
-			if (reader.suffixL3("ste")) return "A";
-			if (reader.suffixL2("me")) {
-				if (reader.prevWord2("") && reader.prevWord1("De") && reader.word === "même") return "ADV";
+			if (r.n(-1,0,"des") && r.n(1,0,"-")) return "A";
+			if (r.w=="fameux" && r.n(1,0,"''")) return "A";
+			if (r.w=="premier" && r.n(-1,1,"P") && r.n(1,1,"PONCT")) return "A";
+			if (r.w=="autre" && r.n(-1,1,"P") && r.n(1,1,"PONCT")) return "A";
+			if (r.n(1,0,"!")) return "A";
+			if (r.s(-3,"ste")) return "A";
+			if (r.s(-2,"me")) {
+				if (r.w=="même" && r.n(-2,0,"") && r.n(-1,0,"De")) return "ADV";
 				return "A";
 			}
-			if (reader.prevWord1("à") && reader.nextWord1(".")) return "PRO";
+			if (r.n(-1,0,"à") && r.n(1,0,".")) return "PRO";
 			return "N";
 		}
-		if (reader.prevTag1("P") && reader.nextTag1("P")) {
-			if (reader.prevWord1("du") && reader.nextWord1("au")) return "A";
-			if (reader.prevWord2("rien")) return "A";
-			if (reader.prevTag1("P") && reader.word === "autres") {
-				if (reader.word === "autres" && reader.nextWord2("lesquels")) return "A";
-				if (reader.prevTag2("P") && reader.prevTag1("P") && reader.word === "autres") return "A";
+		if (r.n(-1,1,"P") && r.n(1,1,"P")) {
+			if (r.n(-1,0,"du") && r.n(1,0,"au")) return "A";
+			if (r.n(-2,0,"rien")) return "A";
+			if (r.w=="autres" && r.n(-1,1,"P")) {
+				if (r.w=="autres" && r.n(2,0,"lesquels")) return "A";
+				if (r.w=="autres" && r.n(-2,1,"P") && r.n(-1,1,"P")) return "A";
 				return "PRO";
 			}
-			if (reader.word === "même" && reader.nextTag1("P")) return "ADV";
-			if (reader.prevWord2("")) return "A";
-			if (reader.suffixL2("un")) return "A";
-			if (reader.prevTag1("P") && reader.word === "rares" && reader.nextTag1("P")) return "A";
-			if (reader.suffixL3("ant")) return "A";
-			if (reader.word === "7") return "D";
-			if (reader.prevWord1("de") && reader.word === "14") return "D";
+			if (r.w=="même" && r.n(1,1,"P")) return "ADV";
+			if (r.n(-2,0,"")) return "A";
+			if (r.s(-2,"un")) return "A";
+			if (r.w=="rares" && r.n(-1,1,"P") && r.n(1,1,"P")) return "A";
+			if (r.s(-3,"ant")) return "A";
+			if (r.w=="7") return "D";
+			if (r.w=="14" && r.n(-1,0,"de")) return "D";
 			return "N";
 		}
-		if (reader.prevTag1("V") && reader.word === "même") return "ADV";
-		if (reader.nextWord1("milliards")) {
-			if (reader.prevWord1("des") && reader.nextWord1("milliards")) return "A";
-			if (reader.prevTag1("D") && reader.nextTag1("N")) return "A";
+		if (r.w=="même" && r.n(-1,1,"V")) return "ADV";
+		if (r.n(1,0,"milliards")) {
+			if (r.n(-1,0,"des") && r.n(1,0,"milliards")) return "A";
+			if (r.n(-1,1,"D") && r.n(1,1,"N")) return "A";
 			return "D";
 		}
-		if (reader.prevTag1("PONCT") && reader.word === "même") return "ADV";
-		if (reader.nextWord1("millions")) return "D";
-		if (reader.prevWord1("(") && reader.nextWord1(")")) {
-			if (reader.nextWord2("de")) return "A";
-			if (reader.word === "1" && reader.nextWord2("ont")) return "A";
-			if (reader.nextWord2("du")) return "A";
+		if (r.w=="même" && r.n(-1,1,"PONCT")) return "ADV";
+		if (r.n(1,0,"millions")) return "D";
+		if (r.n(-1,0,"(") && r.n(1,0,")")) {
+			if (r.n(2,0,"de")) return "A";
+			if (r.w=="1" && r.n(2,0,"ont")) return "A";
+			if (r.n(2,0,"du")) return "A";
 			return "N";
 		}
-		if (reader.word === "1" && reader.nextWord2("de")) return "D";
-		if (reader.prevTag1("C") && reader.word === "même") return "ADV";
-		if (reader.prevTag1("D") && reader.word === "général") return "N";
-		if (reader.word === "autres" && reader.nextTag1("V")) return "PRO";
-		if (reader.prevWord1("l'") && reader.word === "autre") {
-			if (reader.nextTag1("N") && reader.nextTag2("P")) return "A";
-			if (reader.nextTag1("N") && reader.nextTag2("PONCT")) return "A";
+		if (r.w=="1" && r.n(2,0,"de")) return "D";
+		if (r.w=="même" && r.n(-1,1,"C")) return "ADV";
+		if (r.w=="général" && r.n(-1,1,"D")) return "N";
+		if (r.w=="autres" && r.n(1,1,"V")) return "PRO";
+		if (r.w=="autre" && r.n(-1,0,"l'")) {
+			if (r.n(1,1,"N") && r.n(2,1,"P")) return "A";
+			if (r.n(1,1,"N") && r.n(2,1,"PONCT")) return "A";
 			return "PRO";
 		}
-		if (reader.prevTag1("D") && reader.nextTag1("PONCT")) {
-			if (reader.prevTag2("P") && reader.prevTag1("D") && reader.word === "autres") {
-				if (reader.prevWord2("pour") && reader.word === "autres") return "A";
+		if (r.n(-1,1,"D") && r.n(1,1,"PONCT")) {
+			if (r.w=="autres" && r.n(-2,1,"P") && r.n(-1,1,"D")) {
+				if (r.w=="autres" && r.n(-2,0,"pour")) return "A";
 				return "PRO";
 			}
-			if (reader.prevWord1("une") && reader.nextWord1("''")) return "A";
-			if (reader.prevWord1("Le") && reader.nextWord1(",")) return "A";
-			if (reader.word === "dernier" && reader.nextWord1(",")) return "A";
-			if (reader.suffixL4("utre")) {
-				if (reader.prevWord1("un") && reader.word === "autre" && reader.nextWord1(".")) return "PRO";
+			if (r.n(-1,0,"une") && r.n(1,0,"''")) return "A";
+			if (r.n(-1,0,"Le") && r.n(1,0,",")) return "A";
+			if (r.w=="dernier" && r.n(1,0,",")) return "A";
+			if (r.s(-4,"utre")) {
+				if (r.w=="autre" && r.n(-1,0,"un") && r.n(1,0,".")) return "PRO";
 				return "A";
 			}
-			if (reader.prevTag1("D") && reader.word === "même") return "A";
-			if (reader.word === "autres" && reader.nextTag1("PONCT") && reader.nextTag2("")) {
-				if (reader.prevWord2("pour") && reader.word === "autres") return "A";
+			if (r.w=="même" && r.n(-1,1,"D")) return "A";
+			if (r.w=="autres" && r.n(1,1,"PONCT") && r.n(2,1,"")) {
+				if (r.w=="autres" && r.n(-2,0,"pour")) return "A";
 				return "PRO";
 			}
-			if (reader.prevTag1("D") && reader.word === "seul" && reader.nextTag1("PONCT")) return "A";
-			if (reader.prevWord1("la") && reader.word === "seconde") return "A";
-			if (reader.suffixL3("ème")) return "A";
-			if (reader.prevWord1("la") && reader.word === "première") return "A";
-			if (reader.word === "dernière") return "A";
-			if (reader.suffixL3("its")) return "A";
-			if (reader.prevTag1("D") && reader.word === "ancien" && reader.nextTag1("PONCT")) return "A";
-			if (reader.prevWord1("la") && reader.word === "française") return "A";
-			if (reader.prevTag1("D") && reader.word === "meilleures" && reader.nextTag1("PONCT")) return "A";
-			if (reader.suffixL4("mier")) return "A";
-			if (reader.word === "nouveau" && reader.nextTag1("PONCT")) return "A";
-			if (reader.word === "fameux" && reader.nextTag1("PONCT")) return "A";
-			if (reader.suffixL4("ntes")) return "A";
-			if (reader.prevTag1("D") && reader.word === "dernières") return "A";
-			if (reader.prevWord2("des")) return "A";
-			if (reader.word === "autres" && reader.nextTag1("PONCT") && reader.nextTag2("C")) return "PRO";
-			if (reader.prevTag1("D") && reader.word === "véritable") return "A";
-			if (reader.word === "14" && reader.nextTag1("PONCT")) return "A";
-			if (reader.prevWord2("pour") && reader.word === "militaire") return "A";
-			if (reader.prevTag2("") && reader.prevTag1("D") && reader.word === "première") return "A";
-			if (reader.prevWord2("dans") && reader.prevWord1("le") && reader.word === "neuf") return "A";
-			if (reader.word === "22" && reader.nextWord1(",")) return "A";
-			if (reader.prevTag2("PRO")) return "A";
-			if (reader.word === "américaine") return "A";
-			if (reader.prevWord1("une") && reader.nextWord1("-")) return "A";
-			if (reader.word === "dernier" && reader.nextWord1(".")) return "A";
-			if (reader.prevWord1("le") && reader.word === "notionnel") return "A";
-			if (reader.prevTag1("D") && reader.word === "grand" && reader.nextTag1("PONCT")) return "A";
-			if (reader.word === "premiers" && reader.nextWord1(",")) return "A";
-			if (reader.prevWord1("son") && reader.nextWord1("''")) return "A";
-			if (reader.suffixL4("dial")) return "A";
-			if (reader.prevWord1("le") && reader.nextWord1("-")) return "A";
-			if (reader.prevWord2(",") && reader.word === "derniers") return "A";
-			if (reader.prevTag2("P") && reader.prevTag1("D") && reader.word === "précédent") return "A";
-			if (reader.prevWord1("ces") && reader.nextWord1("''")) return "A";
-			if (reader.prevWord2("A") && reader.prevWord1("l'") && reader.word === "inverse") return "A";
+			if (r.w=="seul" && r.n(-1,1,"D") && r.n(1,1,"PONCT")) return "A";
+			if (r.w=="seconde" && r.n(-1,0,"la")) return "A";
+			if (r.s(-3,"ème")) return "A";
+			if (r.w=="première" && r.n(-1,0,"la")) return "A";
+			if (r.w=="dernière") return "A";
+			if (r.s(-3,"its")) return "A";
+			if (r.w=="ancien" && r.n(-1,1,"D") && r.n(1,1,"PONCT")) return "A";
+			if (r.w=="française" && r.n(-1,0,"la")) return "A";
+			if (r.w=="meilleures" && r.n(-1,1,"D") && r.n(1,1,"PONCT")) return "A";
+			if (r.s(-4,"mier")) return "A";
+			if (r.w=="nouveau" && r.n(1,1,"PONCT")) return "A";
+			if (r.w=="fameux" && r.n(1,1,"PONCT")) return "A";
+			if (r.s(-4,"ntes")) return "A";
+			if (r.w=="dernières" && r.n(-1,1,"D")) return "A";
+			if (r.n(-2,0,"des")) return "A";
+			if (r.w=="autres" && r.n(1,1,"PONCT") && r.n(2,1,"C")) return "PRO";
+			if (r.w=="véritable" && r.n(-1,1,"D")) return "A";
+			if (r.w=="14" && r.n(1,1,"PONCT")) return "A";
+			if (r.w=="militaire" && r.n(-2,0,"pour")) return "A";
+			if (r.w=="première" && r.n(-2,1,"") && r.n(-1,1,"D")) return "A";
+			if (r.w=="neuf" && r.n(-2,0,"dans") && r.n(-1,0,"le")) return "A";
+			if (r.w=="22" && r.n(1,0,",")) return "A";
+			if (r.n(-2,1,"PRO")) return "A";
+			if (r.w=="américaine") return "A";
+			if (r.n(-1,0,"une") && r.n(1,0,"-")) return "A";
+			if (r.w=="dernier" && r.n(1,0,".")) return "A";
+			if (r.w=="notionnel" && r.n(-1,0,"le")) return "A";
+			if (r.w=="grand" && r.n(-1,1,"D") && r.n(1,1,"PONCT")) return "A";
+			if (r.w=="premiers" && r.n(1,0,",")) return "A";
+			if (r.n(-1,0,"son") && r.n(1,0,"''")) return "A";
+			if (r.s(-4,"dial")) return "A";
+			if (r.n(-1,0,"le") && r.n(1,0,"-")) return "A";
+			if (r.w=="derniers" && r.n(-2,0,",")) return "A";
+			if (r.w=="précédent" && r.n(-2,1,"P") && r.n(-1,1,"D")) return "A";
+			if (r.n(-1,0,"ces") && r.n(1,0,"''")) return "A";
+			if (r.w=="inverse" && r.n(-2,0,"A") && r.n(-1,0,"l'")) return "A";
 			return "N";
 		}
-		if (reader.nextWord1("heures")) return "D";
-		if (reader.word === "toutes" && reader.nextTag1("N")) return "D";
-		if (reader.prevTag1("P") && reader.nextTag1("C")) {
-			if (reader.word === "moyen" && reader.nextTag1("C")) return "A";
-			if (reader.prevTag2("ADV") && reader.prevTag1("P")) return "A";
-			if (reader.nextWord1("que")) return "A";
-			if (reader.prevTag1("P") && reader.word === "autres") return "PRO";
-			if (reader.prevTag1("P") && reader.word === "telle") return "D";
-			if (reader.suffixL2("me")) return "A";
-			if (reader.prevWord1("de") && reader.word === "bons") return "A";
-			if (reader.nextWord2("tel")) return "A";
-			if (reader.word === "petites" && reader.nextWord1("et")) return "A";
+		if (r.n(1,0,"heures")) return "D";
+		if (r.w=="toutes" && r.n(1,1,"N")) return "D";
+		if (r.n(-1,1,"P") && r.n(1,1,"C")) {
+			if (r.w=="moyen" && r.n(1,1,"C")) return "A";
+			if (r.n(-2,1,"ADV") && r.n(-1,1,"P")) return "A";
+			if (r.n(1,0,"que")) return "A";
+			if (r.w=="autres" && r.n(-1,1,"P")) return "PRO";
+			if (r.w=="telle" && r.n(-1,1,"P")) return "D";
+			if (r.s(-2,"me")) return "A";
+			if (r.w=="bons" && r.n(-1,0,"de")) return "A";
+			if (r.n(2,0,"tel")) return "A";
+			if (r.w=="petites" && r.n(1,0,"et")) return "A";
 			return "N";
 		}
-		if (reader.prevTag1("D") && reader.word === "public") return "N";
-		if (reader.prevTag1("P") && reader.word === "politiques") return "N";
-		if (reader.prevWord1("") && reader.nextWord1(".")) return "N";
-		if (reader.prevTag1("P") && reader.nextTag1("ADV")) {
-			if (reader.suffixL4("tits")) return "A";
-			if (reader.prevTag1("P") && reader.word === "autres") return "PRO";
+		if (r.w=="public" && r.n(-1,1,"D")) return "N";
+		if (r.w=="politiques" && r.n(-1,1,"P")) return "N";
+		if (r.n(-1,0,"") && r.n(1,0,".")) return "N";
+		if (r.n(-1,1,"P") && r.n(1,1,"ADV")) {
+			if (r.s(-4,"tits")) return "A";
+			if (r.w=="autres" && r.n(-1,1,"P")) return "PRO";
 			return "N";
 		}
-		if (reader.prevTag1("P") && reader.nextTag1("V")) {
-			if (reader.prevTag2("A")) return "A";
-			if (reader.nextWord2(",")) return "A";
-			if (reader.prevTag2("ADV")) return "A";
+		if (r.n(-1,1,"P") && r.n(1,1,"V")) {
+			if (r.n(-2,1,"A")) return "A";
+			if (r.n(2,0,",")) return "A";
+			if (r.n(-2,1,"ADV")) return "A";
 			return "N";
 		}
-		if (reader.prevTag1("D") && reader.word === "technique") return "N";
-		if (reader.prevTag1("V") && reader.word === "fort") {
-			if (reader.prevWord2("se")) return "A";
-			if (reader.prevTag1("V") && reader.nextTag1("PONCT")) return "A";
+		if (r.w=="technique" && r.n(-1,1,"D")) return "N";
+		if (r.w=="fort" && r.n(-1,1,"V")) {
+			if (r.n(-2,0,"se")) return "A";
+			if (r.n(-1,1,"V") && r.n(1,1,"PONCT")) return "A";
 			return "ADV";
 		}
-		if (reader.prevWord1("s'")) return "V";
-		if (reader.word === "tous" && reader.nextTag1("N")) {
-			if (reader.nextWord1("ordres")) return "A";
+		if (r.n(-1,0,"s'")) return "V";
+		if (r.w=="tous" && r.n(1,1,"N")) {
+			if (r.n(1,0,"ordres")) return "A";
 			return "D";
 		}
-		if (reader.prevTag1("D") && reader.word === "commune") return "N";
-		if (reader.word === "neuf" && reader.nextTag1("N")) return "D";
-		if (reader.word === "tous" && reader.nextTag1("V")) return "PRO";
-		if (reader.prevWord1("l'") && reader.word === "hebdomadaire") return "N";
-		if (reader.prevTag1("D") && reader.word === "français") return "N";
-		if (reader.prevTag1("D") && reader.word === "américain" && reader.nextTag1("N")) return "N";
-		if (reader.prevTag1("ADV") && reader.word === "même") {
-			if (reader.prevTag2("V") && reader.prevTag1("ADV")) return "A";
+		if (r.w=="commune" && r.n(-1,1,"D")) return "N";
+		if (r.w=="neuf" && r.n(1,1,"N")) return "D";
+		if (r.w=="tous" && r.n(1,1,"V")) return "PRO";
+		if (r.w=="hebdomadaire" && r.n(-1,0,"l'")) return "N";
+		if (r.w=="français" && r.n(-1,1,"D")) return "N";
+		if (r.w=="américain" && r.n(-1,1,"D") && r.n(1,1,"N")) return "N";
+		if (r.w=="même" && r.n(-1,1,"ADV")) {
+			if (r.n(-2,1,"V") && r.n(-1,1,"ADV")) return "A";
 			return "ADV";
 		}
-		if (reader.prevWord1("l'") && reader.nextWord1("et")) {
-			if (reader.suffixL2("le")) return "A";
+		if (r.n(-1,0,"l'") && r.n(1,0,"et")) {
+			if (r.s(-2,"le")) return "A";
 			return "N";
 		}
-		if (reader.prevTag1("D") && reader.word === "allemand" && reader.nextTag1("N")) {
-			if (reader.prevTag2("V") && reader.prevTag1("D")) return "A";
+		if (r.w=="allemand" && r.n(-1,1,"D") && r.n(1,1,"N")) {
+			if (r.n(-2,1,"V") && r.n(-1,1,"D")) return "A";
 			return "N";
 		}
-		if (reader.prevTag1("D") && reader.word === "militaires") return "N";
-		if (reader.word === "fort" && reader.nextTag1("A")) return "ADV";
-		if (reader.prevTag1("D") && reader.word === "centrale") return "N";
-		if (reader.prevTag1("D") && reader.word === "aéronautique") return "N";
-		if (reader.prevTag2("D") && reader.prevTag1("A") && reader.word === "moyen") return "N";
-		if (reader.prevTag1("D") && reader.word === "japonais") return "N";
-		if (reader.prevWord2("s'") && reader.prevWord1("est") && reader.word === "élevé") return "V";
-		if (reader.word === "1" && reader.nextWord1("milliard")) return "D";
-		if (reader.word === "1" && reader.nextWord1("dollar")) return "D";
-		if (reader.word === "quels" && reader.nextTag1("N")) return "D";
-		if (reader.word === "2" && reader.nextWord1("points")) return "D";
-		if (reader.word === "tous" && reader.nextTag1("P")) return "PRO";
-		if (reader.prevWord1("des") && reader.nextWord1("qui")) return "N";
-		if (reader.prevWord1("les") && reader.nextWord1("ne")) return "N";
-		if (reader.prevTag1("D") && reader.word === "industriel") return "N";
-		if (reader.prevTag1("D") && reader.word === "mensuel") return "N";
-		if (reader.prevTag1("D") && reader.word === "moyen") return "N";
-		if (reader.prevTag1("D") && reader.word === "financier") return "N";
-		if (reader.prevTag1("D") && reader.word === "techniques") return "N";
-		if (reader.prevTag2("N") && reader.prevTag1("P") && reader.word === "général") return "N";
-		if (reader.prevTag1("D") && reader.word === "canadien") return "N";
-		if (reader.prevTag1("P") && reader.word === "public") return "N";
-		if (reader.word === "qualifiée" && reader.nextTag1("P")) return "V";
-		if (reader.prevTag2("C") && reader.prevTag1("CL")) return "V";
-		if (reader.prevWord1("qui")) {
-			if (reader.prevTag1("PRO") && reader.word === "seuls" && reader.nextTag1("V")) return "A";
+		if (r.w=="militaires" && r.n(-1,1,"D")) return "N";
+		if (r.w=="fort" && r.n(1,1,"A")) return "ADV";
+		if (r.w=="centrale" && r.n(-1,1,"D")) return "N";
+		if (r.w=="aéronautique" && r.n(-1,1,"D")) return "N";
+		if (r.w=="moyen" && r.n(-2,1,"D") && r.n(-1,1,"A")) return "N";
+		if (r.w=="japonais" && r.n(-1,1,"D")) return "N";
+		if (r.w=="élevé" && r.n(-2,0,"s'") && r.n(-1,0,"est")) return "V";
+		if (r.w=="1" && r.n(1,0,"milliard")) return "D";
+		if (r.w=="1" && r.n(1,0,"dollar")) return "D";
+		if (r.w=="quels" && r.n(1,1,"N")) return "D";
+		if (r.w=="2" && r.n(1,0,"points")) return "D";
+		if (r.w=="tous" && r.n(1,1,"P")) return "PRO";
+		if (r.n(-1,0,"des") && r.n(1,0,"qui")) return "N";
+		if (r.n(-1,0,"les") && r.n(1,0,"ne")) return "N";
+		if (r.w=="industriel" && r.n(-1,1,"D")) return "N";
+		if (r.w=="mensuel" && r.n(-1,1,"D")) return "N";
+		if (r.w=="moyen" && r.n(-1,1,"D")) return "N";
+		if (r.w=="financier" && r.n(-1,1,"D")) return "N";
+		if (r.w=="techniques" && r.n(-1,1,"D")) return "N";
+		if (r.w=="général" && r.n(-2,1,"N") && r.n(-1,1,"P")) return "N";
+		if (r.w=="canadien" && r.n(-1,1,"D")) return "N";
+		if (r.w=="public" && r.n(-1,1,"P")) return "N";
+		if (r.w=="qualifiée" && r.n(1,1,"P")) return "V";
+		if (r.n(-2,1,"C") && r.n(-1,1,"CL")) return "V";
+		if (r.n(-1,0,"qui")) {
+			if (r.w=="seuls" && r.n(-1,1,"PRO") && r.n(1,1,"V")) return "A";
 			return "V";
 		}
-		if (reader.prevWord1("ne")) return "V";
-		if (reader.nextWord1("dollars")) return "D";
-		if (reader.nextWord1("francs")) {
-			if (reader.nextTag1("N") && reader.nextTag2("C")) return "A";
+		if (r.n(-1,0,"ne")) return "V";
+		if (r.n(1,0,"dollars")) return "D";
+		if (r.n(1,0,"francs")) {
+			if (r.n(1,1,"N") && r.n(2,1,"C")) return "A";
 			return "D";
 		}
-		if (reader.prevWord1("ont")) {
-			if (reader.nextWord1("deux")) return "A";
+		if (r.n(-1,0,"ont")) {
+			if (r.n(1,0,"deux")) return "A";
 			return "PRO";
 		}
-		if (reader.word === "Tous" && reader.nextTag1("V")) return "PRO";
-		if (reader.word === "autres" && reader.nextTag1("CL") && reader.nextTag2("V")) return "PRO";
-		if (reader.prevTag1("D") && reader.word === "nucléaire") return "N";
-		if (reader.prevTag1("D") && reader.word === "britannique") return "N";
-		if (reader.prevTag1("D") && reader.word === "prêt") return "N";
-		if (reader.prevTag1("D") && reader.word === "routiers") return "N";
-		if (reader.prevTag1("D") && reader.nextTag1("CL")) {
-			if (reader.prevWord1("Cette") && reader.word === "dernière") return "A";
-			if (reader.suffixL4("iers")) return "A";
+		if (r.w=="Tous" && r.n(1,1,"V")) return "PRO";
+		if (r.w=="autres" && r.n(1,1,"CL") && r.n(2,1,"V")) return "PRO";
+		if (r.w=="nucléaire" && r.n(-1,1,"D")) return "N";
+		if (r.w=="britannique" && r.n(-1,1,"D")) return "N";
+		if (r.w=="prêt" && r.n(-1,1,"D")) return "N";
+		if (r.w=="routiers" && r.n(-1,1,"D")) return "N";
+		if (r.n(-1,1,"D") && r.n(1,1,"CL")) {
+			if (r.w=="dernière" && r.n(-1,0,"Cette")) return "A";
+			if (r.s(-4,"iers")) return "A";
 			return "N";
 		}
-		if (reader.prevWord1("ancien")) return "N";
-		if (reader.prevWord1("l'") && reader.word === "anglais") return "N";
-		if (reader.prevWord1("les") && reader.nextWord1("que")) return "N";
-		if (reader.prevTag1("D") && reader.word === "étrangers") return "N";
-		if (reader.word === "ouverte" && reader.nextTag1("P")) {
-			if (reader.prevTag2("A") && reader.prevTag1("N") && reader.word === "ouverte") return "A";
+		if (r.n(-1,0,"ancien")) return "N";
+		if (r.w=="anglais" && r.n(-1,0,"l'")) return "N";
+		if (r.n(-1,0,"les") && r.n(1,0,"que")) return "N";
+		if (r.w=="étrangers" && r.n(-1,1,"D")) return "N";
+		if (r.w=="ouverte" && r.n(1,1,"P")) {
+			if (r.w=="ouverte" && r.n(-2,1,"A") && r.n(-1,1,"N")) return "A";
 			return "V";
 		}
-		if (reader.prevWord1("est") && reader.word === "élevée") return "V";
-		if (reader.prevTag1("CL") && reader.word === "court") return "V";
-		if (reader.prevTag1("V") && reader.word === "ouverts") return "V";
-		if (reader.word === "toutes" && reader.nextTag1("A")) return "ADV";
-		if (reader.word === "même" && reader.nextTag1("D") && reader.nextTag2("N")) return "ADV";
-		if (reader.prevTag1("PONCT") && reader.word === "29") return "D";
-		if (reader.prevWord1(",") && reader.nextWord1(")")) return "D";
-		if (reader.nextWord1("ans")) {
-			if (reader.nextTag2("P")) return "A";
+		if (r.w=="élevée" && r.n(-1,0,"est")) return "V";
+		if (r.w=="court" && r.n(-1,1,"CL")) return "V";
+		if (r.w=="ouverts" && r.n(-1,1,"V")) return "V";
+		if (r.w=="toutes" && r.n(1,1,"A")) return "ADV";
+		if (r.w=="même" && r.n(1,1,"D") && r.n(2,1,"N")) return "ADV";
+		if (r.w=="29" && r.n(-1,1,"PONCT")) return "D";
+		if (r.n(-1,0,",") && r.n(1,0,")")) return "D";
+		if (r.n(1,0,"ans")) {
+			if (r.n(2,1,"P")) return "A";
 			return "D";
 		}
-		if (reader.prevTag1("PONCT") && reader.word === "23") return "D";
-		if (reader.prevWord1("de") && reader.word === "1") return "D";
-		if (reader.prevTag2("N") && reader.prevTag1("P") && reader.word === "tels") return "D";
-		if (reader.word === "quel" && reader.nextTag1("N") && reader.nextTag2("P")) return "D";
-		if (reader.prevWord1("à") && reader.nextWord1("mois")) return "D";
-		if (reader.word === "autres" && reader.nextTag1("ADV")) return "PRO";
-		if (reader.word === "tous" && reader.nextTag1("PONCT")) return "PRO";
-		if (reader.prevTag1("D") && reader.word === "locaux") return "N";
-		if (reader.prevWord1("mauvaises")) return "N";
-		if (reader.prevTag1("P") && reader.word === "japonais" && reader.nextTag1("N")) return "N";
-		if (reader.prevTag1("P") && reader.word === "communistes" && reader.nextTag1("A")) return "N";
-		if (reader.prevTag1("D") && reader.word === "politiques") return "N";
-		if (reader.prevWord1("les") && reader.word === "américains") return "N";
-		if (reader.prevWord1("les") && reader.nextWord1("ont")) return "N";
-		if (reader.prevWord1("Michel")) return "N";
-		if (reader.prevTag1("D") && reader.word === "espagnol" && reader.nextTag1("N")) return "N";
-		if (reader.prevWord1("grand")) return "N";
-		if (reader.prevTag1("A") && reader.word === "courants") return "N";
-		if (reader.prevWord1("grande")) return "N";
-		if (reader.word === "anciens" && reader.nextWord1("dirigeants") && reader.nextWord2("de")) return "N";
-		if (reader.prevWord1("non-")) return "N";
-		if (reader.prevWord1("la") && reader.nextWord1("ne")) return "N";
-		if (reader.prevWord1("M.")) return "N";
-		if (reader.prevTag2("A") && reader.prevTag1("PONCT") && reader.word === "allemand") return "N";
-		if (reader.prevTag1("P") && reader.nextTag1("CL")) return "N";
-		if (reader.prevTag2("PRO") && reader.prevTag1("CL")) return "V";
-		if (reader.word === "spécialisés" && reader.nextTag1("P")) return "V";
-		if (reader.word === "privée" && reader.nextTag1("P") && reader.nextTag2("D")) return "V";
-		if (reader.prevWord2("se") && reader.word === "élevés") return "V";
-		if (reader.prevTag1("ADV") && reader.word === "élevés" && reader.nextTag1("C")) return "V";
-		if (reader.prevTag2("D") && reader.prevTag1("N") && reader.word === "court") return "V";
-		if (reader.prevWord1("davantage")) return "V";
-		if (reader.word === "soutenue" && reader.nextWord1("par")) return "V";
-		if (reader.prevTag2("D") && reader.prevTag1("N") && reader.word === "forcée") return "V";
+		if (r.w=="23" && r.n(-1,1,"PONCT")) return "D";
+		if (r.w=="1" && r.n(-1,0,"de")) return "D";
+		if (r.w=="tels" && r.n(-2,1,"N") && r.n(-1,1,"P")) return "D";
+		if (r.w=="quel" && r.n(1,1,"N") && r.n(2,1,"P")) return "D";
+		if (r.n(-1,0,"à") && r.n(1,0,"mois")) return "D";
+		if (r.w=="autres" && r.n(1,1,"ADV")) return "PRO";
+		if (r.w=="tous" && r.n(1,1,"PONCT")) return "PRO";
+		if (r.w=="locaux" && r.n(-1,1,"D")) return "N";
+		if (r.n(-1,0,"mauvaises")) return "N";
+		if (r.w=="japonais" && r.n(-1,1,"P") && r.n(1,1,"N")) return "N";
+		if (r.w=="communistes" && r.n(-1,1,"P") && r.n(1,1,"A")) return "N";
+		if (r.w=="politiques" && r.n(-1,1,"D")) return "N";
+		if (r.w=="américains" && r.n(-1,0,"les")) return "N";
+		if (r.n(-1,0,"les") && r.n(1,0,"ont")) return "N";
+		if (r.n(-1,0,"Michel")) return "N";
+		if (r.w=="espagnol" && r.n(-1,1,"D") && r.n(1,1,"N")) return "N";
+		if (r.n(-1,0,"grand")) return "N";
+		if (r.w=="courants" && r.n(-1,1,"A")) return "N";
+		if (r.n(-1,0,"grande")) return "N";
+		if (r.w=="anciens" && r.n(1,0,"dirigeants") && r.n(2,0,"de")) return "N";
+		if (r.n(-1,0,"non-")) return "N";
+		if (r.n(-1,0,"la") && r.n(1,0,"ne")) return "N";
+		if (r.n(-1,0,"M.")) return "N";
+		if (r.w=="allemand" && r.n(-2,1,"A") && r.n(-1,1,"PONCT")) return "N";
+		if (r.n(-1,1,"P") && r.n(1,1,"CL")) return "N";
+		if (r.n(-2,1,"PRO") && r.n(-1,1,"CL")) return "V";
+		if (r.w=="spécialisés" && r.n(1,1,"P")) return "V";
+		if (r.w=="privée" && r.n(1,1,"P") && r.n(2,1,"D")) return "V";
+		if (r.w=="élevés" && r.n(-2,0,"se")) return "V";
+		if (r.w=="élevés" && r.n(-1,1,"ADV") && r.n(1,1,"C")) return "V";
+		if (r.w=="court" && r.n(-2,1,"D") && r.n(-1,1,"N")) return "V";
+		if (r.n(-1,0,"davantage")) return "V";
+		if (r.w=="soutenue" && r.n(1,0,"par")) return "V";
+		if (r.w=="forcée" && r.n(-2,1,"D") && r.n(-1,1,"N")) return "V";
 		return "A";
 	}
-	if (reader.tag === "ADV") {
-		if (reader.word === "tout" && reader.nextTag1("D")) {
-			if (reader.nextWord2("que")) return "PRO";
-			if (reader.prevWord1("de") && reader.word === "tout" && reader.nextWord1("ce")) return "PRO";
-			if (reader.prevWord1("et") && reader.nextWord1("ce")) return "PRO";
+	if (r.t=="ADV") {
+		if (r.w=="tout" && r.n(1,1,"D")) {
+			if (r.n(2,0,"que")) return "PRO";
+			if (r.w=="tout" && r.n(-1,0,"de") && r.n(1,0,"ce")) return "PRO";
+			if (r.n(-1,0,"et") && r.n(1,0,"ce")) return "PRO";
 			return "A";
 		}
-		if (reader.prevTag1("D") && reader.nextTag1("P")) {
-			if (reader.word === "plus") return "ADV";
-			if (reader.prevWord1("un") && reader.word === "peu") return "ADV";
-			if (reader.word === "doublement" && reader.nextTag1("P") && reader.nextTag2("D")) return "ADV";
+		if (r.n(-1,1,"D") && r.n(1,1,"P")) {
+			if (r.w=="plus") return "ADV";
+			if (r.w=="peu" && r.n(-1,0,"un")) return "ADV";
+			if (r.w=="doublement" && r.n(1,1,"P") && r.n(2,1,"D")) return "ADV";
 			return "N";
 		}
-		if (reader.word === "tout" && reader.nextTag1("V")) {
-			if (reader.prevWord1("a")) return "ADV";
-			if (reader.nextWord1("risque")) return "D";
-			if (reader.prevTag2("") && reader.prevTag1("D") && reader.word === "tout") return "N";
+		if (r.w=="tout" && r.n(1,1,"V")) {
+			if (r.n(-1,0,"a")) return "ADV";
+			if (r.n(1,0,"risque")) return "D";
+			if (r.w=="tout" && r.n(-2,1,"") && r.n(-1,1,"D")) return "N";
 			return "PRO";
 		}
-		if (reader.word === "tout" && reader.nextTag1("N")) {
-			if (reader.prevWord2("le") && reader.word === "tout") return "ADV";
-			if (reader.word === "tout" && reader.nextWord1("intérêt")) return "ADV";
-			if (reader.prevTag2("V") && reader.prevTag1("ADV") && reader.word === "tout") return "ADV";
-			if (reader.prevTag1("N")) return "ADV";
-			if (reader.prevWord2("1990")) return "PRO";
+		if (r.w=="tout" && r.n(1,1,"N")) {
+			if (r.w=="tout" && r.n(-2,0,"le")) return "ADV";
+			if (r.w=="tout" && r.n(1,0,"intérêt")) return "ADV";
+			if (r.w=="tout" && r.n(-2,1,"V") && r.n(-1,1,"ADV")) return "ADV";
+			if (r.n(-1,1,"N")) return "ADV";
+			if (r.n(-2,0,"1990")) return "PRO";
 			return "D";
 		}
-		if (reader.word === "quelque" && reader.nextTag1("N")) return "D";
-		if (reader.prevWord1("du")) {
-			if (reader.word === "plus") return "ADV";
+		if (r.w=="quelque" && r.n(1,1,"N")) return "D";
+		if (r.n(-1,0,"du")) {
+			if (r.w=="plus") return "ADV";
 			return "N";
 		}
-		if (reader.prevTag1("D") && reader.nextTag1("PONCT")) {
-			if (reader.suffixL3("ins")) return "ADV";
-			if (reader.prevTag1("D") && reader.word === "actuellement") return "ADV";
-			if (reader.word === "plus") return "ADV";
-			if (reader.suffixL3("hui")) return "ADV";
-			if (reader.nextWord2("''")) return "A";
+		if (r.n(-1,1,"D") && r.n(1,1,"PONCT")) {
+			if (r.s(-3,"ins")) return "ADV";
+			if (r.w=="actuellement" && r.n(-1,1,"D")) return "ADV";
+			if (r.w=="plus") return "ADV";
+			if (r.s(-3,"hui")) return "ADV";
+			if (r.n(2,0,"''")) return "A";
 			return "N";
 		}
-		if (reader.word === "tout" && reader.nextTag1("PONCT")) return "PRO";
-		if (reader.word === "tout" && reader.nextTag1("CL") && reader.nextTag2("V")) return "PRO";
-		if (reader.word === "tout" && reader.nextTag1("PRO")) return "A";
-		if (reader.word === "juste" && reader.nextTag1("N")) return "A";
-		if (reader.prevWord1("''") && reader.word === "oui") {
-			if (reader.nextTag1("PONCT") && reader.nextTag2("V")) return "I";
+		if (r.w=="tout" && r.n(1,1,"PONCT")) return "PRO";
+		if (r.w=="tout" && r.n(1,1,"CL") && r.n(2,1,"V")) return "PRO";
+		if (r.w=="tout" && r.n(1,1,"PRO")) return "A";
+		if (r.w=="juste" && r.n(1,1,"N")) return "A";
+		if (r.w=="oui" && r.n(-1,0,"''")) {
+			if (r.n(1,1,"PONCT") && r.n(2,1,"V")) return "I";
 			return "N";
 		}
-		if (reader.prevWord1("''") && reader.word === "non" && reader.nextWord1("''")) return "N";
-		if (reader.prevTag1("D") && reader.nextTag1("C")) {
-			if (reader.nextWord2("en")) return "ADV";
+		if (r.w=="non" && r.n(-1,0,"''") && r.n(1,0,"''")) return "N";
+		if (r.n(-1,1,"D") && r.n(1,1,"C")) {
+			if (r.n(2,0,"en")) return "ADV";
 			return "N";
 		}
-		if (reader.prevTag1("P") && reader.word === "mal") return "N";
-		if (reader.prevTag1("D") && reader.word === "mal") return "N";
-		if (reader.word === "Même" && reader.nextTag1("N") && reader.nextTag2("P")) return "A";
-		if (reader.prevWord1("taux") && reader.word === "à-court-terme") return "A";
-		if (reader.prevTag1("C") && reader.word === "beaucoup" && reader.nextTag1("V")) return "PRO";
-		if (reader.prevTag2("D") && reader.prevTag1("A") && reader.word === "pas") return "N";
-		if (reader.prevWord1("en") && reader.word === "maintenant") return "V";
-		if (reader.prevWord1("se")) return "V";
-		if (reader.prevWord1(",") && reader.word === "donc" && reader.nextWord1("de")) return "C";
-		if (reader.word === "Non" && reader.nextWord1(".")) return "I";
-		if (reader.prevTag1("PRO") && reader.word === "beaucoup" && reader.nextTag1("V")) return "PRO";
-		if (reader.prevWord1("petits")) return "N";
-		if (reader.prevWord1("de") && reader.nextWord1("et")) return "N";
-		if (reader.nextWord1("desquelles")) return "P";
-		if (reader.prevWord1("n'")) return "V";
+		if (r.w=="mal" && r.n(-1,1,"P")) return "N";
+		if (r.w=="mal" && r.n(-1,1,"D")) return "N";
+		if (r.w=="Même" && r.n(1,1,"N") && r.n(2,1,"P")) return "A";
+		if (r.w=="à-court-terme" && r.n(-1,0,"taux")) return "A";
+		if (r.w=="beaucoup" && r.n(-1,1,"C") && r.n(1,1,"V")) return "PRO";
+		if (r.w=="pas" && r.n(-2,1,"D") && r.n(-1,1,"A")) return "N";
+		if (r.w=="maintenant" && r.n(-1,0,"en")) return "V";
+		if (r.n(-1,0,"se")) return "V";
+		if (r.w=="donc" && r.n(-1,0,",") && r.n(1,0,"de")) return "C";
+		if (r.w=="Non" && r.n(1,0,".")) return "I";
+		if (r.w=="beaucoup" && r.n(-1,1,"PRO") && r.n(1,1,"V")) return "PRO";
+		if (r.n(-1,0,"petits")) return "N";
+		if (r.n(-1,0,"de") && r.n(1,0,"et")) return "N";
+		if (r.n(1,0,"desquelles")) return "P";
+		if (r.n(-1,0,"n'")) return "V";
 		return "ADV";
 	}
-	if (reader.tag === "C") {
-		if (reader.prevWord1("ce")) {
-			if (reader.prevTag1("D") && reader.word === "soit") return "V";
-			if (reader.prevWord1("ce") && reader.nextWord1("''")) return "C";
-			if (reader.word === "que" && reader.nextWord1("ce")) return "C";
+	if (r.t=="C") {
+		if (r.n(-1,0,"ce")) {
+			if (r.w=="soit" && r.n(-1,1,"D")) return "V";
+			if (r.n(-1,0,"ce") && r.n(1,0,"''")) return "C";
+			if (r.w=="que" && r.n(1,0,"ce")) return "C";
 			return "PRO";
 		}
-		if (reader.prevTag1("N") && reader.word === "qu'" && reader.nextTag1("CL")) {
-			if (reader.word === "qu'" && reader.nextWord1("il") && reader.nextWord2("ne")) return "C";
-			if (reader.prevWord2("ce")) return "C";
-			if (reader.prevWord1("janvier")) return "C";
-			if (reader.prevTag2("ADV")) return "C";
-			if (reader.nextTag1("CL") && reader.nextTag2("PONCT")) return "C";
-			if (reader.prevWord1("juin") && reader.word === "qu'") return "C";
-			if (reader.prevWord1("audience")) return "C";
-			if (reader.prevWord1("questions") && reader.word === "qu'") return "C";
-			if (reader.word === "qu'" && reader.nextWord2("allait")) return "C";
-			if (reader.prevWord2("son") && reader.word === "qu'") return "C";
-			if (reader.prevWord1("demande")) return "C";
+		if (r.w=="qu'" && r.n(-1,1,"N") && r.n(1,1,"CL")) {
+			if (r.w=="qu'" && r.n(1,0,"il") && r.n(2,0,"ne")) return "C";
+			if (r.n(-2,0,"ce")) return "C";
+			if (r.n(-1,0,"janvier")) return "C";
+			if (r.n(-2,1,"ADV")) return "C";
+			if (r.n(1,1,"CL") && r.n(2,1,"PONCT")) return "C";
+			if (r.w=="qu'" && r.n(-1,0,"juin")) return "C";
+			if (r.n(-1,0,"audience")) return "C";
+			if (r.w=="qu'" && r.n(-1,0,"questions")) return "C";
+			if (r.w=="qu'" && r.n(2,0,"allait")) return "C";
+			if (r.w=="qu'" && r.n(-2,0,"son")) return "C";
+			if (r.n(-1,0,"demande")) return "C";
 			return "PRO";
 		}
-		if (reader.prevWord2("ne")) {
-			if (reader.prevWord2("ne") && reader.word === "ni") return "C";
+		if (r.n(-2,0,"ne")) {
+			if (r.w=="ni" && r.n(-2,0,"ne")) return "C";
 			return "ADV";
 		}
-		if (reader.word === "que" && reader.nextTag1("V")) {
-			if (reader.nextWord1("prévu")) return "C";
-			if (reader.prevTag2("V") && reader.prevTag1("V")) return "ADV";
-			if (reader.prevTag2("V") && reader.prevTag1("ADV")) return "C";
-			if (reader.prevTag2("CL") && reader.prevTag1("V") && reader.word === "que") return "C";
-			if (reader.prevTag2("PONCT") && reader.prevTag1("ADV") && reader.word === "que") return "C";
+		if (r.w=="que" && r.n(1,1,"V")) {
+			if (r.n(1,0,"prévu")) return "C";
+			if (r.n(-2,1,"V") && r.n(-1,1,"V")) return "ADV";
+			if (r.n(-2,1,"V") && r.n(-1,1,"ADV")) return "C";
+			if (r.w=="que" && r.n(-2,1,"CL") && r.n(-1,1,"V")) return "C";
+			if (r.w=="que" && r.n(-2,1,"PONCT") && r.n(-1,1,"ADV")) return "C";
 			return "PRO";
 		}
-		if (reader.word === "soit" && reader.nextTag1("V")) return "V";
-		if (reader.prevTag1("N") && reader.word === "que" && reader.nextTag1("CL")) {
-			if (reader.word === "que" && reader.nextWord1("c'") && reader.nextWord2("est")) return "C";
-			if (reader.prevWord2("cette")) return "C";
+		if (r.w=="soit" && r.n(1,1,"V")) return "V";
+		if (r.w=="que" && r.n(-1,1,"N") && r.n(1,1,"CL")) {
+			if (r.w=="que" && r.n(1,0,"c'") && r.n(2,0,"est")) return "C";
+			if (r.n(-2,0,"cette")) return "C";
 			return "PRO";
 		}
-		if (reader.word === "qu'" && reader.nextTag1("V")) {
-			if (reader.prevTag1("V") && reader.word === "qu'") {
-				if (reader.prevTag2("A") && reader.prevTag1("V") && reader.word === "qu'") return "C";
+		if (r.w=="qu'" && r.n(1,1,"V")) {
+			if (r.w=="qu'" && r.n(-1,1,"V")) {
+				if (r.w=="qu'" && r.n(-2,1,"A") && r.n(-1,1,"V")) return "C";
 				return "ADV";
 			}
-			if (reader.word === "qu'" && reader.nextWord2(".")) return "C";
+			if (r.w=="qu'" && r.n(2,0,".")) return "C";
 			return "PRO";
 		}
-		if (reader.prevWord2("n'")) {
-			if (reader.prevTag1("V") && reader.word === "ni" && reader.nextTag1("N")) return "C";
-			if (reader.word === "ni" && reader.nextWord1("les")) return "C";
-			if (reader.word === "ni" && reader.nextTag1("P")) return "C";
-			if (reader.prevWord1("empêche") && reader.word === "que") return "C";
+		if (r.n(-2,0,"n'")) {
+			if (r.w=="ni" && r.n(-1,1,"V") && r.n(1,1,"N")) return "C";
+			if (r.w=="ni" && r.n(1,0,"les")) return "C";
+			if (r.w=="ni" && r.n(1,1,"P")) return "C";
+			if (r.w=="que" && r.n(-1,0,"empêche")) return "C";
 			return "ADV";
 		}
-		if (reader.prevTag1("PRO") && reader.nextTag1("CL")) {
-			if (reader.nextTag1("CL") && reader.nextTag2("ADV")) return "C";
+		if (r.n(-1,1,"PRO") && r.n(1,1,"CL")) {
+			if (r.n(1,1,"CL") && r.n(2,1,"ADV")) return "C";
 			return "PRO";
 		}
-		if (reader.prevWord1("ne")) return "V";
-		if (reader.prevTag1("N") && reader.word === "soit") return "V";
-		if (reader.word === "si" && reader.nextTag1("A")) {
-			if (reader.word === "si" && reader.nextWord1("tous")) return "C";
-			if (reader.word === "si" && reader.nextWord1("possible")) return "C";
+		if (r.n(-1,0,"ne")) return "V";
+		if (r.w=="soit" && r.n(-1,1,"N")) return "V";
+		if (r.w=="si" && r.n(1,1,"A")) {
+			if (r.w=="si" && r.n(1,0,"tous")) return "C";
+			if (r.w=="si" && r.n(1,0,"possible")) return "C";
 			return "ADV";
 		}
-		if (reader.prevWord1("que") && reader.word === "soit") return "V";
-		if (reader.prevTag1("PONCT") && reader.word === "que" && reader.nextTag1("CL")) {
-			if (reader.prevTag2("V") && reader.prevTag1("PONCT")) return "C";
+		if (r.w=="soit" && r.n(-1,0,"que")) return "V";
+		if (r.w=="que" && r.n(-1,1,"PONCT") && r.n(1,1,"CL")) {
+			if (r.n(-2,1,"V") && r.n(-1,1,"PONCT")) return "C";
 			return "PRO";
 		}
-		if (reader.prevWord1("a")) return "ADV";
-		if (reader.prevTag1("D") && reader.nextTag1("CL")) return "PRO";
-		if (reader.prevTag1("A") && reader.word === "soit") return "V";
-		if (reader.prevTag1("CL") && reader.word === "soit") return "V";
-		if (reader.prevWord2("Une") && reader.word === "que") return "PRO";
-		if (reader.word === "sinon" && reader.nextWord1(",")) return "ADV";
-		if (reader.prevWord1("pas") && reader.nextWord1("des")) return "ADV";
-		if (reader.prevTag1("P") && reader.word === "quand") return "ADV";
-		if (reader.prevWord1("être")) return "ADV";
-		if (reader.prevWord1("plus") && reader.nextWord1("une")) return "ADV";
-		if (reader.word === "que" && reader.nextWord1("par")) {
-			if (reader.prevTag1("ADV")) return "C";
-			if (reader.prevTag2("N")) return "C";
+		if (r.n(-1,0,"a")) return "ADV";
+		if (r.n(-1,1,"D") && r.n(1,1,"CL")) return "PRO";
+		if (r.w=="soit" && r.n(-1,1,"A")) return "V";
+		if (r.w=="soit" && r.n(-1,1,"CL")) return "V";
+		if (r.w=="que" && r.n(-2,0,"Une")) return "PRO";
+		if (r.w=="sinon" && r.n(1,0,",")) return "ADV";
+		if (r.n(-1,0,"pas") && r.n(1,0,"des")) return "ADV";
+		if (r.w=="quand" && r.n(-1,1,"P")) return "ADV";
+		if (r.n(-1,0,"être")) return "ADV";
+		if (r.n(-1,0,"plus") && r.n(1,0,"une")) return "ADV";
+		if (r.w=="que" && r.n(1,0,"par")) {
+			if (r.n(-1,1,"ADV")) return "C";
+			if (r.n(-2,1,"N")) return "C";
 			return "ADV";
 		}
-		if (reader.word === "que" && reader.nextWord2("%")) {
-			if (reader.word === "que" && reader.nextWord1("80")) return "C";
-			if (reader.word === "que" && reader.nextWord1("70") && reader.nextWord2("%")) return "C";
+		if (r.w=="que" && r.n(2,0,"%")) {
+			if (r.w=="que" && r.n(1,0,"80")) return "C";
+			if (r.w=="que" && r.n(1,0,"70") && r.n(2,0,"%")) return "C";
 			return "ADV";
 		}
-		if (reader.prevTag1("") && reader.word === "S'" && reader.nextTag1("V")) return "CL";
-		if (reader.prevWord2("une") && reader.word === "que") return "PRO";
-		if (reader.word === "Qu'" && reader.nextTag1("V")) return "PRO";
-		if (reader.word === "que" && reader.nextWord1("quelques")) return "ADV";
-		if (reader.word === "qu'" && reader.nextWord1("à") && reader.nextWord2("la")) return "ADV";
-		if (reader.prevTag1("N") && reader.word === "que" && reader.nextTag1("C")) return "ADV";
-		if (reader.prevWord1("plus") && reader.word === "que" && reader.nextWord1("de")) return "ADV";
-		if (reader.prevWord1("eu")) return "ADV";
-		if (reader.prevWord1("été") && reader.word === "que") return "ADV";
-		if (reader.prevWord1("") && reader.nextWord1("y")) return "CL";
-		if (reader.prevTag1("D") && reader.nextTag1("C")) return "PRO";
-		if (reader.prevWord2("un") && reader.word === "que") {
-			if (reader.prevTag1("N") && reader.nextTag1("P")) return "C";
+		if (r.w=="S'" && r.n(-1,1,"") && r.n(1,1,"V")) return "CL";
+		if (r.w=="que" && r.n(-2,0,"une")) return "PRO";
+		if (r.w=="Qu'" && r.n(1,1,"V")) return "PRO";
+		if (r.w=="que" && r.n(1,0,"quelques")) return "ADV";
+		if (r.w=="qu'" && r.n(1,0,"à") && r.n(2,0,"la")) return "ADV";
+		if (r.w=="que" && r.n(-1,1,"N") && r.n(1,1,"C")) return "ADV";
+		if (r.w=="que" && r.n(-1,0,"plus") && r.n(1,0,"de")) return "ADV";
+		if (r.n(-1,0,"eu")) return "ADV";
+		if (r.w=="que" && r.n(-1,0,"été")) return "ADV";
+		if (r.n(-1,0,"") && r.n(1,0,"y")) return "CL";
+		if (r.n(-1,1,"D") && r.n(1,1,"C")) return "PRO";
+		if (r.w=="que" && r.n(-2,0,"un")) {
+			if (r.n(-1,1,"N") && r.n(1,1,"P")) return "C";
 			return "PRO";
 		}
-		if (reader.prevWord2("La") && reader.word === "que") return "PRO";
-		if (reader.prevWord2("des") && reader.word === "que") {
-			if (reader.word === "que" && reader.nextWord1("de")) return "C";
+		if (r.w=="que" && r.n(-2,0,"La")) return "PRO";
+		if (r.w=="que" && r.n(-2,0,"des")) {
+			if (r.w=="que" && r.n(1,0,"de")) return "C";
 			return "PRO";
 		}
-		if (reader.prevTag1("P") && reader.word === "soit") return "V";
-		if (reader.prevTag1("ADV") && reader.word === "si" && reader.nextTag1("ADV")) return "ADV";
-		if (reader.word === "que" && reader.nextWord2("mois")) return "ADV";
-		if (reader.word === "voire" && reader.nextTag1("P") && reader.nextTag2("V")) return "ADV";
-		if (reader.prevWord2("être") && reader.word === "qu'") return "ADV";
-		if (reader.word === "ni" && reader.nextWord1("même")) return "ADV";
-		if (reader.prevWord2("été") && reader.word === "qu'") return "ADV";
-		if (reader.prevWord2("Un") && reader.word === "que") return "PRO";
-		if (reader.word === "que" && reader.nextTag1("N") && reader.nextTag2("D")) return "PRO";
-		if (reader.prevWord2("les") && reader.word === "qu'") return "PRO";
-		if (reader.prevTag2("N") && reader.prevTag1("A") && reader.word === "qu'") {
-			if (reader.prevWord1("telle") && reader.word === "qu'") return "C";
-			if (reader.nextWord2("ne")) return "C";
+		if (r.w=="soit" && r.n(-1,1,"P")) return "V";
+		if (r.w=="si" && r.n(-1,1,"ADV") && r.n(1,1,"ADV")) return "ADV";
+		if (r.w=="que" && r.n(2,0,"mois")) return "ADV";
+		if (r.w=="voire" && r.n(1,1,"P") && r.n(2,1,"V")) return "ADV";
+		if (r.w=="qu'" && r.n(-2,0,"être")) return "ADV";
+		if (r.w=="ni" && r.n(1,0,"même")) return "ADV";
+		if (r.w=="qu'" && r.n(-2,0,"été")) return "ADV";
+		if (r.w=="que" && r.n(-2,0,"Un")) return "PRO";
+		if (r.w=="que" && r.n(1,1,"N") && r.n(2,1,"D")) return "PRO";
+		if (r.w=="qu'" && r.n(-2,0,"les")) return "PRO";
+		if (r.w=="qu'" && r.n(-2,1,"N") && r.n(-1,1,"A")) {
+			if (r.w=="qu'" && r.n(-1,0,"telle")) return "C";
+			if (r.n(2,0,"ne")) return "C";
 			return "PRO";
 		}
-		if (reader.prevWord1("qui")) return "V";
+		if (r.n(-1,0,"qui")) return "V";
 		return "C";
 	}
-	if (reader.tag === "D") {
-		if (reader.prevTag1("D")) {
-			if (reader.prevWord1("toute")) return "D";
-			if (reader.prevWord1("L'")) return "PRO";
-			if (reader.word === "une" && reader.nextTag1("P") && reader.nextTag2("D")) return "PRO";
-			if (reader.prevTag1("D") && reader.word === "l'") return "D";
-			if (reader.nextTag1("P") && reader.nextTag2("ADV")) return "PRO";
-			if (reader.word === "une" && reader.nextTag1("P") && reader.nextTag2("N")) return "PRO";
-			if (reader.word === "un" && reader.nextWord2("l'")) return "PRO";
-			if (reader.prevTag1("D") && reader.word === "le") {
-				if (reader.prevTag1("D") && reader.nextTag1("V")) return "CL";
+	if (r.t=="D") {
+		if (r.n(-1,1,"D")) {
+			if (r.n(-1,0,"toute")) return "D";
+			if (r.n(-1,0,"L'")) return "PRO";
+			if (r.w=="une" && r.n(1,1,"P") && r.n(2,1,"D")) return "PRO";
+			if (r.w=="l'" && r.n(-1,1,"D")) return "D";
+			if (r.n(1,1,"P") && r.n(2,1,"ADV")) return "PRO";
+			if (r.w=="une" && r.n(1,1,"P") && r.n(2,1,"N")) return "PRO";
+			if (r.w=="un" && r.n(2,0,"l'")) return "PRO";
+			if (r.w=="le" && r.n(-1,1,"D")) {
+				if (r.n(-1,1,"D") && r.n(1,1,"V")) return "CL";
 				return "D";
 			}
-			if (reader.word === "la" && reader.nextTag1("N")) return "D";
-			if (reader.prevWord1("la") && reader.nextWord1(",")) return "N";
-			if (reader.prevTag2("ADV") && reader.prevTag1("D") && reader.word === "un") return "PRO";
-			if (reader.prevTag2("V") && reader.prevTag1("D") && reader.word === "une") {
-				if (reader.prevWord1("toute")) return "D";
+			if (r.w=="la" && r.n(1,1,"N")) return "D";
+			if (r.n(-1,0,"la") && r.n(1,0,",")) return "N";
+			if (r.w=="un" && r.n(-2,1,"ADV") && r.n(-1,1,"D")) return "PRO";
+			if (r.w=="une" && r.n(-2,1,"V") && r.n(-1,1,"D")) {
+				if (r.n(-1,0,"toute")) return "D";
 				return "PRO";
 			}
-			if (reader.prevWord2("comme") && reader.word === "un") return "PRO";
-			if (reader.prevTag2("P") && reader.prevTag1("D") && reader.word === "une") {
-				if (reader.prevWord1("toute")) return "D";
+			if (r.w=="un" && r.n(-2,0,"comme")) return "PRO";
+			if (r.w=="une" && r.n(-2,1,"P") && r.n(-1,1,"D")) {
+				if (r.n(-1,0,"toute")) return "D";
 				return "PRO";
 			}
-			if (reader.prevTag1("D") && reader.word === "les") return "D";
-			if (reader.word === "un" && reader.nextTag1("V")) return "PRO";
-			if (reader.nextWord2("meilleurs")) return "PRO";
-			if (reader.word === "un" && reader.nextWord2("premiers")) return "PRO";
-			if (reader.prevWord2("été")) return "PRO";
-			if (reader.suffixL2("rs")) return "PRO";
-			if (reader.suffixL2("ur")) {
-				if (reader.prevTag1("D") && reader.nextTag1("N")) return "D";
+			if (r.w=="les" && r.n(-1,1,"D")) return "D";
+			if (r.w=="un" && r.n(1,1,"V")) return "PRO";
+			if (r.n(2,0,"meilleurs")) return "PRO";
+			if (r.w=="un" && r.n(2,0,"premiers")) return "PRO";
+			if (r.n(-2,0,"été")) return "PRO";
+			if (r.s(-2,"rs")) return "PRO";
+			if (r.s(-2,"ur")) {
+				if (r.n(-1,1,"D") && r.n(1,1,"N")) return "D";
 				return "CL";
 			}
-			if (reader.prevWord2("-") && reader.word === "une") {
-				if (reader.word === "une" && reader.nextWord1("des")) return "PRO";
+			if (r.w=="une" && r.n(-2,0,"-")) {
+				if (r.w=="une" && r.n(1,0,"des")) return "PRO";
 				return "D";
 			}
-			if (reader.word === "30" && reader.nextWord1("%")) return "D";
-			if (reader.word === "cinq" && reader.nextTag1("N") && reader.nextTag2("A")) return "D";
-			if (reader.prevTag1("D") && reader.word === "un" && reader.nextTag1("N")) {
-				if (reader.prevWord1("l'")) return "PRO";
+			if (r.w=="30" && r.n(1,0,"%")) return "D";
+			if (r.w=="cinq" && r.n(1,1,"N") && r.n(2,1,"A")) return "D";
+			if (r.w=="un" && r.n(-1,1,"D") && r.n(1,1,"N")) {
+				if (r.n(-1,0,"l'")) return "PRO";
 				return "D";
 			}
-			if (reader.prevWord1("la") && reader.nextWord1(".")) return "N";
-			if (reader.prevWord1("un")) return "N";
-			if (reader.nextWord2("leurs")) return "PRO";
-			if (reader.prevWord1("l'") && reader.nextWord1(",")) return "PRO";
-			if (reader.prevTag1("D") && reader.nextTag1("PRO")) return "PRO";
-			if (reader.prevTag2("ADV") && reader.prevTag1("D") && reader.word === "une") {
-				if (reader.prevWord1("toute")) return "D";
+			if (r.n(-1,0,"la") && r.n(1,0,".")) return "N";
+			if (r.n(-1,0,"un")) return "N";
+			if (r.n(2,0,"leurs")) return "PRO";
+			if (r.n(-1,0,"l'") && r.n(1,0,",")) return "PRO";
+			if (r.n(-1,1,"D") && r.n(1,1,"PRO")) return "PRO";
+			if (r.w=="une" && r.n(-2,1,"ADV") && r.n(-1,1,"D")) {
+				if (r.n(-1,0,"toute")) return "D";
 				return "PRO";
 			}
-			if (reader.prevWord2("sera") && reader.prevWord1("l'") && reader.word === "un") return "PRO";
-			if (reader.word === "un" && reader.nextWord2("trois")) return "PRO";
-			if (reader.word === "un" && reader.nextWord1("des") && reader.nextWord2("participants")) return "PRO";
-			if (reader.word === "100" && reader.nextWord1("millions")) return "D";
-			if (reader.prevWord1("les") && reader.word === "35") return "D";
-			if (reader.prevWord1("les") && reader.word === "5" && reader.nextWord1("%")) return "D";
-			if (reader.word === "mille" && reader.nextTag1("N")) return "D";
-			if (reader.prevWord1("les") && reader.word === "20" && reader.nextWord1("%")) return "D";
-			if (reader.word === "trois" && reader.nextWord1("mois")) return "D";
-			if (reader.prevWord2("(") && reader.prevWord1("les") && reader.word === "deux") return "D";
-			if (reader.nextTag1("PONCT") && reader.nextTag2("PONCT")) return "N";
-			if (reader.nextTag1("PONCT") && reader.nextTag2("C")) return "N";
-			if (reader.prevWord1("la") && reader.nextWord1("et")) return "N";
-			if (reader.nextTag1("PONCT") && reader.nextTag2("PRO")) return "N";
+			if (r.w=="un" && r.n(-2,0,"sera") && r.n(-1,0,"l'")) return "PRO";
+			if (r.w=="un" && r.n(2,0,"trois")) return "PRO";
+			if (r.w=="un" && r.n(1,0,"des") && r.n(2,0,"participants")) return "PRO";
+			if (r.w=="100" && r.n(1,0,"millions")) return "D";
+			if (r.w=="35" && r.n(-1,0,"les")) return "D";
+			if (r.w=="5" && r.n(-1,0,"les") && r.n(1,0,"%")) return "D";
+			if (r.w=="mille" && r.n(1,1,"N")) return "D";
+			if (r.w=="20" && r.n(-1,0,"les") && r.n(1,0,"%")) return "D";
+			if (r.w=="trois" && r.n(1,0,"mois")) return "D";
+			if (r.w=="deux" && r.n(-2,0,"(") && r.n(-1,0,"les")) return "D";
+			if (r.n(1,1,"PONCT") && r.n(2,1,"PONCT")) return "N";
+			if (r.n(1,1,"PONCT") && r.n(2,1,"C")) return "N";
+			if (r.n(-1,0,"la") && r.n(1,0,"et")) return "N";
+			if (r.n(1,1,"PONCT") && r.n(2,1,"PRO")) return "N";
 			return "A";
 		}
-		if (reader.nextTag1("V")) {
-			if (reader.word === "un" && reader.nextTag1("V")) return "D";
-			if (reader.nextWord1("été")) return "D";
-			if (reader.word === "une") return "D";
-			if (reader.nextWord1("reste")) return "D";
-			if (reader.nextWord1("risque")) return "D";
-			if (reader.prevWord1("de") && reader.nextWord1("est")) return "D";
-			if (reader.suffixL3("ins")) return "PRO";
-			if (reader.prevWord1("sur")) {
-				if (reader.suffixL3("inq")) return "PRO";
-				if (reader.nextTag1("V") && reader.nextTag2("D")) return "PRO";
+		if (r.n(1,1,"V")) {
+			if (r.w=="un" && r.n(1,1,"V")) return "D";
+			if (r.n(1,0,"été")) return "D";
+			if (r.w=="une") return "D";
+			if (r.n(1,0,"reste")) return "D";
+			if (r.n(1,0,"risque")) return "D";
+			if (r.n(-1,0,"de") && r.n(1,0,"est")) return "D";
+			if (r.s(-3,"ins")) return "PRO";
+			if (r.n(-1,0,"sur")) {
+				if (r.s(-3,"inq")) return "PRO";
+				if (r.n(1,1,"V") && r.n(2,1,"D")) return "PRO";
 				return "D";
 			}
-			if (reader.prevWord1("dans")) return "D";
-			if (reader.prevWord1("à") && reader.nextWord1("est")) return "D";
-			if (reader.word === "le" && reader.nextWord1("fait") && reader.nextWord2("que")) return "D";
-			if (reader.word === "son" && reader.nextTag1("V")) return "D";
-			if (reader.word === "les" && reader.nextWord1("sommes")) return "D";
-			if (reader.nextWord1("prise")) return "D";
-			if (reader.word === "Le" && reader.nextWord1("fait")) return "D";
-			if (reader.prevTag2("P") && reader.prevTag1("V") && reader.word === "les") return "D";
-			if (reader.suffixL3("urs")) return "D";
-			if (reader.suffixL2("00")) return "PRO";
-			if (reader.prevWord1("est")) return "D";
-			if (reader.word === "ses" && reader.nextTag1("V")) return "D";
-			if (reader.word === "la" && reader.nextWord1("porte")) return "D";
-			if (reader.suffixL2("es")) {
-				if (reader.suffixL3("ues")) return "D";
+			if (r.n(-1,0,"dans")) return "D";
+			if (r.n(-1,0,"à") && r.n(1,0,"est")) return "D";
+			if (r.w=="le" && r.n(1,0,"fait") && r.n(2,0,"que")) return "D";
+			if (r.w=="son" && r.n(1,1,"V")) return "D";
+			if (r.w=="les" && r.n(1,0,"sommes")) return "D";
+			if (r.n(1,0,"prise")) return "D";
+			if (r.w=="Le" && r.n(1,0,"fait")) return "D";
+			if (r.w=="les" && r.n(-2,1,"P") && r.n(-1,1,"V")) return "D";
+			if (r.s(-3,"urs")) return "D";
+			if (r.s(-2,"00")) return "PRO";
+			if (r.n(-1,0,"est")) return "D";
+			if (r.w=="ses" && r.n(1,1,"V")) return "D";
+			if (r.w=="la" && r.n(1,0,"porte")) return "D";
+			if (r.s(-2,"es")) {
+				if (r.s(-3,"ues")) return "D";
 				return "PRO";
 			}
-			if (reader.prevWord1("que") && reader.word === "le") return "D";
-			if (reader.word === "la" && reader.nextWord2("des")) return "D";
-			if (reader.word === "ces") return "D";
-			if (reader.word === "la" && reader.nextTag1("V") && reader.nextTag2("N")) return "D";
-			if (reader.prevWord1("vers")) return "D";
-			if (reader.nextWord1("passé")) return "D";
-			if (reader.suffixL2("te")) return "D";
-			if (reader.suffixL2("le")) return "A";
-			if (reader.nextWord1("représentant")) return "D";
-			if (reader.prevTag1("") && reader.word === "Une" && reader.nextTag1("V")) return "D";
-			if (reader.nextWord1("permis")) return "D";
-			if (reader.word === "les" && reader.nextWord1("intéressés")) return "D";
-			if (reader.prevTag2("P") && reader.prevTag1("V") && reader.word === "le") return "D";
-			if (reader.nextWord1("venue")) return "D";
-			if (reader.word === "le" && reader.nextWord1("fait") && reader.nextWord2("qu'")) return "D";
-			if (reader.prevWord1("années") && reader.word === "90") return "A";
-			if (reader.prevWord1("des")) return "A";
-			if (reader.suffixL3("eux")) return "PRO";
-			if (reader.prevWord1("entre")) return "D";
-			if (reader.nextWord1("devoir")) return "D";
-			if (reader.word === "la" && reader.nextWord1("limite")) return "D";
-			if (reader.word === "la" && reader.nextWord2("qu'")) return "D";
-			if (reader.word === "l'" && reader.nextWord2("des")) return "D";
-			if (reader.nextWord1("relève")) return "D";
-			if (reader.word === "le" && reader.nextWord1("fait") && reader.nextWord2("de")) return "D";
-			if (reader.word === "sa" && reader.nextTag1("V")) return "D";
-			if (reader.word === "Un" && reader.nextTag1("V")) return "D";
-			if (reader.nextWord1("retenue")) return "D";
-			if (reader.word === "l'" && reader.nextWord1("est") && reader.nextWord2(",")) return "D";
-			if (reader.word === "la" && reader.nextWord2("(")) return "D";
-			if (reader.word === "Le" && reader.nextTag1("V") && reader.nextTag2("P")) return "D";
-			if (reader.nextWord1("arrêté")) return "D";
-			if (reader.prevTag1("N") && reader.word === "80") return "N";
-			if (reader.word === "60") return "A";
-			if (reader.suffixL4("rois")) return "PRO";
-			if (reader.suffixL3("inq")) return "PRO";
-			if (reader.prevWord1("selon")) return "D";
-			if (reader.word === "Les" && reader.nextTag1("V") && reader.nextTag2("ADV")) return "D";
-			if (reader.nextWord1("blessés")) return "D";
-			if (reader.word === "cet" && reader.nextTag1("V")) return "D";
-			if (reader.nextWord1("adresse")) return "D";
-			if (reader.nextWord1("tués")) return "D";
-			if (reader.nextWord1("intéressé")) return "D";
-			if (reader.prevTag2("C") && reader.prevTag1("PONCT")) return "D";
-			if (reader.nextWord1("saisie")) return "D";
-			if (reader.nextWord1("prises")) return "D";
-			if (reader.nextWord1("ira")) return "D";
-			if (reader.prevWord1("que") && reader.word === "les") return "D";
-			if (reader.word === "leur" && reader.nextWord1("découvert")) return "D";
-			if (reader.prevWord2("est") && reader.word === "la") return "D";
-			if (reader.prevWord1("parmi")) return "D";
-			if (reader.word === "La" && reader.nextTag1("V") && reader.nextTag2("P")) return "D";
-			if (reader.word === "mon") return "D";
-			if (reader.prevWord1("par") && reader.word === "le") return "D";
-			if (reader.word === "le" && reader.nextWord1("devenir") && reader.nextWord2("de")) return "D";
-			if (reader.prevWord1("chez")) return "D";
-			if (reader.prevWord1("à") && reader.nextWord1("porte")) return "D";
-			if (reader.prevWord2("avait") && reader.word === "le") return "D";
-			if (reader.word === "le" && reader.nextWord1("fait") && reader.nextWord2("des")) return "D";
-			if (reader.prevWord1("contre")) return "D";
-			if (reader.prevWord2("janvier")) return "D";
-			if (reader.prevWord1("par") && reader.word === "la") return "D";
-			if (reader.word === "L'" && reader.nextTag1("V") && reader.nextTag2("P")) return "D";
-			if (reader.prevWord1("années") && reader.word === "50") return "N";
-			if (reader.prevWord1("autoroute")) return "N";
+			if (r.w=="le" && r.n(-1,0,"que")) return "D";
+			if (r.w=="la" && r.n(2,0,"des")) return "D";
+			if (r.w=="ces") return "D";
+			if (r.w=="la" && r.n(1,1,"V") && r.n(2,1,"N")) return "D";
+			if (r.n(-1,0,"vers")) return "D";
+			if (r.n(1,0,"passé")) return "D";
+			if (r.s(-2,"te")) return "D";
+			if (r.s(-2,"le")) return "A";
+			if (r.n(1,0,"représentant")) return "D";
+			if (r.w=="Une" && r.n(-1,1,"") && r.n(1,1,"V")) return "D";
+			if (r.n(1,0,"permis")) return "D";
+			if (r.w=="les" && r.n(1,0,"intéressés")) return "D";
+			if (r.w=="le" && r.n(-2,1,"P") && r.n(-1,1,"V")) return "D";
+			if (r.n(1,0,"venue")) return "D";
+			if (r.w=="le" && r.n(1,0,"fait") && r.n(2,0,"qu'")) return "D";
+			if (r.w=="90" && r.n(-1,0,"années")) return "A";
+			if (r.n(-1,0,"des")) return "A";
+			if (r.s(-3,"eux")) return "PRO";
+			if (r.n(-1,0,"entre")) return "D";
+			if (r.n(1,0,"devoir")) return "D";
+			if (r.w=="la" && r.n(1,0,"limite")) return "D";
+			if (r.w=="la" && r.n(2,0,"qu'")) return "D";
+			if (r.w=="l'" && r.n(2,0,"des")) return "D";
+			if (r.n(1,0,"relève")) return "D";
+			if (r.w=="le" && r.n(1,0,"fait") && r.n(2,0,"de")) return "D";
+			if (r.w=="sa" && r.n(1,1,"V")) return "D";
+			if (r.w=="Un" && r.n(1,1,"V")) return "D";
+			if (r.n(1,0,"retenue")) return "D";
+			if (r.w=="l'" && r.n(1,0,"est") && r.n(2,0,",")) return "D";
+			if (r.w=="la" && r.n(2,0,"(")) return "D";
+			if (r.w=="Le" && r.n(1,1,"V") && r.n(2,1,"P")) return "D";
+			if (r.n(1,0,"arrêté")) return "D";
+			if (r.w=="80" && r.n(-1,1,"N")) return "N";
+			if (r.w=="60") return "A";
+			if (r.s(-4,"rois")) return "PRO";
+			if (r.s(-3,"inq")) return "PRO";
+			if (r.n(-1,0,"selon")) return "D";
+			if (r.w=="Les" && r.n(1,1,"V") && r.n(2,1,"ADV")) return "D";
+			if (r.n(1,0,"blessés")) return "D";
+			if (r.w=="cet" && r.n(1,1,"V")) return "D";
+			if (r.n(1,0,"adresse")) return "D";
+			if (r.n(1,0,"tués")) return "D";
+			if (r.n(1,0,"intéressé")) return "D";
+			if (r.n(-2,1,"C") && r.n(-1,1,"PONCT")) return "D";
+			if (r.n(1,0,"saisie")) return "D";
+			if (r.n(1,0,"prises")) return "D";
+			if (r.n(1,0,"ira")) return "D";
+			if (r.w=="les" && r.n(-1,0,"que")) return "D";
+			if (r.w=="leur" && r.n(1,0,"découvert")) return "D";
+			if (r.w=="la" && r.n(-2,0,"est")) return "D";
+			if (r.n(-1,0,"parmi")) return "D";
+			if (r.w=="La" && r.n(1,1,"V") && r.n(2,1,"P")) return "D";
+			if (r.w=="mon") return "D";
+			if (r.w=="le" && r.n(-1,0,"par")) return "D";
+			if (r.w=="le" && r.n(1,0,"devenir") && r.n(2,0,"de")) return "D";
+			if (r.n(-1,0,"chez")) return "D";
+			if (r.n(-1,0,"à") && r.n(1,0,"porte")) return "D";
+			if (r.w=="le" && r.n(-2,0,"avait")) return "D";
+			if (r.w=="le" && r.n(1,0,"fait") && r.n(2,0,"des")) return "D";
+			if (r.n(-1,0,"contre")) return "D";
+			if (r.n(-2,0,"janvier")) return "D";
+			if (r.w=="la" && r.n(-1,0,"par")) return "D";
+			if (r.w=="L'" && r.n(1,1,"V") && r.n(2,1,"P")) return "D";
+			if (r.w=="50" && r.n(-1,0,"années")) return "N";
+			if (r.n(-1,0,"autoroute")) return "N";
 			return "CL";
 		}
-		if (reader.nextWord1("qui")) return "PRO";
-		if (reader.word === "ce" && reader.nextTag1("C")) {
-			if (reader.nextWord1("soit")) return "CL";
+		if (r.n(1,0,"qui")) return "PRO";
+		if (r.w=="ce" && r.n(1,1,"C")) {
+			if (r.n(1,0,"soit")) return "CL";
 			return "PRO";
 		}
-		if (reader.prevWord1("des")) {
-			if (reader.nextWord1("agents")) return "D";
-			if (reader.nextTag1("PONCT") && reader.nextTag2("D")) return "D";
-			if (reader.prevWord2("patrons")) return "D";
+		if (r.n(-1,0,"des")) {
+			if (r.n(1,0,"agents")) return "D";
+			if (r.n(1,1,"PONCT") && r.n(2,1,"D")) return "D";
+			if (r.n(-2,0,"patrons")) return "D";
 			return "A";
 		}
-		if (reader.prevWord1("du")) {
-			if (reader.prevTag2("N") && reader.prevTag1("P") && reader.word === "nombre-de") return "D";
+		if (r.n(-1,0,"du")) {
+			if (r.w=="nombre-de" && r.n(-2,1,"N") && r.n(-1,1,"P")) return "D";
 			return "A";
 		}
-		if (reader.nextWord1("janvier")) return "A";
-		if (reader.nextWord1(",")) {
-			if (reader.suffixL3("ins")) return "PRO";
-			if (reader.suffixL4("-000")) {
-				if (reader.nextTag2("D")) return "PRO";
+		if (r.n(1,0,"janvier")) return "A";
+		if (r.n(1,0,",")) {
+			if (r.s(-3,"ins")) return "PRO";
+			if (r.s(-4,"-000")) {
+				if (r.n(2,1,"D")) return "PRO";
 				return "D";
 			}
-			if (reader.prevWord1("sur")) return "PRO";
-			if (reader.word === "un") {
-				if (reader.prevTag1("N") && reader.word === "un" && reader.nextTag1("PONCT")) return "A";
+			if (r.n(-1,0,"sur")) return "PRO";
+			if (r.w=="un") {
+				if (r.w=="un" && r.n(-1,1,"N") && r.n(1,1,"PONCT")) return "A";
 				return "PRO";
 			}
-			if (reader.word === "une") return "PRO";
-			if (reader.prevTag1("C") && reader.word === "ce") return "PRO";
-			if (reader.prevWord1("n°") && reader.nextWord1(",")) return "A";
-			if (reader.word === "60" && reader.nextTag1("PONCT") && reader.nextTag2("P")) return "A";
-			if (reader.prevTag1("C") && reader.word === "six") return "PRO";
-			if (reader.suffixL2("es")) return "PRO";
-			if (reader.nextWord2("soit")) return "D";
-			if (reader.word === "14-,-15" && reader.nextTag1("PONCT") && reader.nextTag2("A")) return "D";
-			if (reader.word === "16.17") return "D";
-			if (reader.suffixL2("20")) return "D";
-			if (reader.prevWord2("''")) return "D";
+			if (r.w=="une") return "PRO";
+			if (r.w=="ce" && r.n(-1,1,"C")) return "PRO";
+			if (r.n(-1,0,"n°") && r.n(1,0,",")) return "A";
+			if (r.w=="60" && r.n(1,1,"PONCT") && r.n(2,1,"P")) return "A";
+			if (r.w=="six" && r.n(-1,1,"C")) return "PRO";
+			if (r.s(-2,"es")) return "PRO";
+			if (r.n(2,0,"soit")) return "D";
+			if (r.w=="14-,-15" && r.n(1,1,"PONCT") && r.n(2,1,"A")) return "D";
+			if (r.w=="16.17") return "D";
+			if (r.s(-2,"20")) return "D";
+			if (r.n(-2,0,"''")) return "D";
 			return "N";
 		}
-		if (reader.word === "toute" && reader.nextTag1("D")) return "A";
-		if (reader.nextWord1("juin")) return "A";
-		if (reader.nextWord1("n'")) {
-			if (reader.suffixL2("ne")) return "PRO";
+		if (r.w=="toute" && r.n(1,1,"D")) return "A";
+		if (r.n(1,0,"juin")) return "A";
+		if (r.n(1,0,"n'")) {
+			if (r.s(-2,"ne")) return "PRO";
 			return "CL";
 		}
-		if (reader.nextWord1("juillet")) return "A";
-		if (reader.nextTag1("PONCT") && reader.nextTag2("")) {
-			if (reader.suffixL2("00")) return "PRO";
-			if (reader.prevTag2("PONCT") && reader.prevTag1("N")) return "A";
-			if (reader.prevWord1("sur")) return "PRO";
-			if (reader.prevTag2("D") && reader.prevTag1("P")) {
-				if (reader.suffixL3("000")) return "PRO";
-				if (reader.suffixL4("")) return "PRO";
+		if (r.n(1,0,"juillet")) return "A";
+		if (r.n(1,1,"PONCT") && r.n(2,1,"")) {
+			if (r.s(-2,"00")) return "PRO";
+			if (r.n(-2,1,"PONCT") && r.n(-1,1,"N")) return "A";
+			if (r.n(-1,0,"sur")) return "PRO";
+			if (r.n(-2,1,"D") && r.n(-1,1,"P")) {
+				if (r.s(-3,"000")) return "PRO";
+				if (r.s(-4,"")) return "PRO";
 				return "A";
 			}
-			if (reader.prevTag1("V") && reader.nextTag1("PONCT")) return "PRO";
-			if (reader.prevTag2("ADV")) return "PRO";
-			if (reader.prevWord1("à") && reader.word === "trois") return "PRO";
-			if (reader.prevWord1("annÃ©es")) return "A";
-			if (reader.prevTag2("V") && reader.prevTag1("ADV")) return "PRO";
-			if (reader.prevWord1("que") && reader.nextWord1(".")) return "PRO";
-			if (reader.prevWord2("deux")) return "D";
+			if (r.n(-1,1,"V") && r.n(1,1,"PONCT")) return "PRO";
+			if (r.n(-2,1,"ADV")) return "PRO";
+			if (r.w=="trois" && r.n(-1,0,"à")) return "PRO";
+			if (r.n(-1,0,"annÃ©es")) return "A";
+			if (r.n(-2,1,"V") && r.n(-1,1,"ADV")) return "PRO";
+			if (r.n(-1,0,"que") && r.n(1,0,".")) return "PRO";
+			if (r.n(-2,0,"deux")) return "D";
 			return "N";
 		}
-		if (reader.nextTag1("P") && reader.nextTag2("N")) {
-			if (reader.prevTag1("N") && reader.nextTag1("P")) {
-				if (reader.prevWord2("des")) return "N";
+		if (r.n(1,1,"P") && r.n(2,1,"N")) {
+			if (r.n(-1,1,"N") && r.n(1,1,"P")) {
+				if (r.n(-2,0,"des")) return "N";
 				return "A";
 			}
-			if (reader.word === "le" && reader.nextTag1("P")) return "D";
-			if (reader.prevWord1("est") && reader.word === "une") return "D";
-			if (reader.nextWord1("sur")) return "N";
-			if (reader.prevWord2("fût") && reader.word === "ce") return "CL";
-			if (reader.nextWord2("responsables")) return "D";
-			if (reader.prevWord2("réduction")) return "D";
-			if (reader.word === "Une") return "D";
-			if (reader.nextWord2("1994")) return "D";
-			if (reader.prevTag2("D") && reader.prevTag1("C")) return "D";
-			if (reader.suffixL2("20")) return "D";
-			if (reader.prevWord2("total")) return "D";
-			if (reader.suffixL2("67")) return "N";
-			if (reader.prevWord1("par")) return "N";
+			if (r.w=="le" && r.n(1,1,"P")) return "D";
+			if (r.w=="une" && r.n(-1,0,"est")) return "D";
+			if (r.n(1,0,"sur")) return "N";
+			if (r.w=="ce" && r.n(-2,0,"fût")) return "CL";
+			if (r.n(2,0,"responsables")) return "D";
+			if (r.n(-2,0,"réduction")) return "D";
+			if (r.w=="Une") return "D";
+			if (r.n(2,0,"1994")) return "D";
+			if (r.n(-2,1,"D") && r.n(-1,1,"C")) return "D";
+			if (r.s(-2,"20")) return "D";
+			if (r.n(-2,0,"total")) return "D";
+			if (r.s(-2,"67")) return "N";
+			if (r.n(-1,0,"par")) return "N";
 			return "PRO";
 		}
-		if (reader.nextWord1("de")) {
-			if (reader.nextWord2("la")) return "A";
-			if (reader.prevTag2("D") && reader.prevTag1("N")) return "A";
-			if (reader.word === "certaines" && reader.nextWord1("de") && reader.nextWord2("nos")) return "A";
+		if (r.n(1,0,"de")) {
+			if (r.n(2,0,"la")) return "A";
+			if (r.n(-2,1,"D") && r.n(-1,1,"N")) return "A";
+			if (r.w=="certaines" && r.n(1,0,"de") && r.n(2,0,"nos")) return "A";
 			return "PRO";
 		}
-		if (reader.nextWord1("décembre")) return "A";
-		if (reader.prevWord1("au--cours-des")) return "A";
-		if (reader.nextWord1("des")) {
-			if (reader.nextWord2("leurs")) return "D";
-			if (reader.prevTag2("CL")) return "D";
+		if (r.n(1,0,"décembre")) return "A";
+		if (r.n(-1,0,"au--cours-des")) return "A";
+		if (r.n(1,0,"des")) {
+			if (r.n(2,0,"leurs")) return "D";
+			if (r.n(-2,1,"CL")) return "D";
 			return "PRO";
 		}
-		if (reader.prevWord1("aux")) return "A";
-		if (reader.nextTag1("P") && reader.nextTag2("P")) {
-			if (reader.word === "le") return "D";
+		if (r.n(-1,0,"aux")) return "A";
+		if (r.n(1,1,"P") && r.n(2,1,"P")) {
+			if (r.w=="le") return "D";
 			return "PRO";
 		}
-		if (reader.prevWord1("-") && reader.word === "ce") {
-			if (reader.word === "ce" && reader.nextTag1("N") && reader.nextTag2("V")) return "D";
+		if (r.w=="ce" && r.n(-1,0,"-")) {
+			if (r.w=="ce" && r.n(1,1,"N") && r.n(2,1,"V")) return "D";
 			return "CL";
 		}
-		if (reader.nextWord1("ne")) {
-			if (reader.word === "certains") return "PRO";
-			if (reader.prevWord2("des")) return "N";
+		if (r.n(1,0,"ne")) {
+			if (r.w=="certains") return "PRO";
+			if (r.n(-2,0,"des")) return "N";
 			return "CL";
 		}
-		if (reader.prevWord1("au")) return "A";
-		if (reader.nextTag1("CL") && reader.nextTag2("V")) {
-			if (reader.nextWord1("se")) return "PRO";
-			if (reader.suffixL3("ins")) return "PRO";
+		if (r.n(-1,0,"au")) return "A";
+		if (r.n(1,1,"CL") && r.n(2,1,"V")) {
+			if (r.n(1,0,"se")) return "PRO";
+			if (r.s(-3,"ins")) return "PRO";
 			return "CL";
 		}
-		if (reader.nextWord1(":")) {
-			if (reader.prevTag1("P")) return "PRO";
-			if (reader.prevWord2("en")) return "PRO";
+		if (r.n(1,0,":")) {
+			if (r.n(-1,1,"P")) return "PRO";
+			if (r.n(-2,0,"en")) return "PRO";
 			return "A";
 		}
-		if (reader.word === "Ce" && reader.nextTag1("C")) return "PRO";
-		if (reader.prevTag1("N") && reader.nextTag1("P")) {
-			if (reader.prevTag2("N") && reader.prevTag1("N")) return "A";
-			if (reader.prevWord2(",")) return "A";
+		if (r.w=="Ce" && r.n(1,1,"C")) return "PRO";
+		if (r.n(-1,1,"N") && r.n(1,1,"P")) {
+			if (r.n(-2,1,"N") && r.n(-1,1,"N")) return "A";
+			if (r.n(-2,0,",")) return "A";
 			return "N";
 		}
-		if (reader.prevWord1(";") && reader.nextWord1("Mr")) return "N";
-		if (reader.prevWord1("daté") && reader.nextWord1("-")) return "A";
-		if (reader.nextWord1("d'-entre")) return "PRO";
-		if (reader.nextWord1("pour")) {
-			if (reader.prevWord1("à") && reader.nextWord1("pour")) return "N";
+		if (r.n(-1,0,";") && r.n(1,0,"Mr")) return "N";
+		if (r.n(-1,0,"daté") && r.n(1,0,"-")) return "A";
+		if (r.n(1,0,"d'-entre")) return "PRO";
+		if (r.n(1,0,"pour")) {
+			if (r.n(-1,0,"à") && r.n(1,0,"pour")) return "N";
 			return "PRO";
 		}
-		if (reader.nextTag1("PONCT") && reader.nextTag2("PONCT")) {
-			if (reader.prevWord1("art.") && reader.nextWord1(")")) return "A";
-			if (reader.prevWord1("années") && reader.word === "50") return "A";
-			if (reader.prevWord1("page")) return "A";
-			if (reader.suffixL4("-,-3")) return "PRO";
-			if (reader.prevWord2("deux")) return "PRO";
-			if (reader.suffixL3("-29")) return "D";
-			if (reader.prevTag2("A") && reader.prevTag1("PONCT")) return "D";
-			if (reader.prevWord1(",") && reader.nextWord1(")")) return "D";
-			if (reader.prevWord2(")")) return "D";
+		if (r.n(1,1,"PONCT") && r.n(2,1,"PONCT")) {
+			if (r.n(-1,0,"art.") && r.n(1,0,")")) return "A";
+			if (r.w=="50" && r.n(-1,0,"années")) return "A";
+			if (r.n(-1,0,"page")) return "A";
+			if (r.s(-4,"-,-3")) return "PRO";
+			if (r.n(-2,0,"deux")) return "PRO";
+			if (r.s(-3,"-29")) return "D";
+			if (r.n(-2,1,"A") && r.n(-1,1,"PONCT")) return "D";
+			if (r.n(-1,0,",") && r.n(1,0,")")) return "D";
+			if (r.n(-2,0,")")) return "D";
 			return "N";
 		}
-		if (reader.prevTag1("N") && reader.nextTag1("C")) {
-			if (reader.prevTag1("N") && reader.word === "50" && reader.nextTag1("C")) return "N";
+		if (r.n(-1,1,"N") && r.n(1,1,"C")) {
+			if (r.w=="50" && r.n(-1,1,"N") && r.n(1,1,"C")) return "N";
 			return "A";
 		}
-		if (reader.nextWord1("que")) return "A";
-		if (reader.prevTag2("C") && reader.prevTag1("CL")) return "CL";
-		if (reader.nextWord1("JANVIER")) return "A";
-		if (reader.word === "ce" && reader.nextTag1("P")) return "PRO";
-		if (reader.nextWord1("l'")) {
-			if (reader.nextWord2("une")) return "A";
-			if (reader.nextTag2("V")) return "PRO";
+		if (r.n(1,0,"que")) return "A";
+		if (r.n(-2,1,"C") && r.n(-1,1,"CL")) return "CL";
+		if (r.n(1,0,"JANVIER")) return "A";
+		if (r.w=="ce" && r.n(1,1,"P")) return "PRO";
+		if (r.n(1,0,"l'")) {
+			if (r.n(2,0,"une")) return "A";
+			if (r.n(2,1,"V")) return "PRO";
 			return "N";
 		}
-		if (reader.prevTag1("") && reader.word === "Des" && reader.nextTag1("D")) return "P";
-		if (reader.prevWord1("numéro")) return "A";
-		if (reader.prevWord1("au----dessus-des")) return "A";
-		if (reader.nextWord1("septembre")) return "A";
-		if (reader.nextTag1("P") && reader.nextTag2("V")) {
-			if (reader.prevTag1("V") && reader.nextTag1("P")) return "PRO";
+		if (r.w=="Des" && r.n(-1,1,"") && r.n(1,1,"D")) return "P";
+		if (r.n(-1,0,"numéro")) return "A";
+		if (r.n(-1,0,"au----dessus-des")) return "A";
+		if (r.n(1,0,"septembre")) return "A";
+		if (r.n(1,1,"P") && r.n(2,1,"V")) {
+			if (r.n(-1,1,"V") && r.n(1,1,"P")) return "PRO";
 			return "CL";
 		}
-		if (reader.prevTag1("A") && reader.word === "deux") return "PRO";
-		if (reader.nextWord1("le")) {
-			if (reader.prevWord1("à")) return "N";
+		if (r.w=="deux" && r.n(-1,1,"A")) return "PRO";
+		if (r.n(1,0,"le")) {
+			if (r.n(-1,0,"à")) return "N";
 			return "PRO";
 		}
-		if (reader.nextWord2("Il")) return "N";
-		if (reader.nextWord1("Paris")) return "N";
-		if (reader.nextTag1("PONCT") && reader.nextTag2("P")) {
-			if (reader.suffixL2("00")) return "D";
+		if (r.n(2,0,"Il")) return "N";
+		if (r.n(1,0,"Paris")) return "N";
+		if (r.n(1,1,"PONCT") && r.n(2,1,"P")) {
+			if (r.s(-2,"00")) return "D";
 			return "N";
 		}
-		if (reader.prevTag1("") && reader.word === "Toute" && reader.nextTag1("D")) return "A";
-		if (reader.prevWord1("mardi") && reader.nextWord1("mai")) return "A";
-		if (reader.nextWord1("JUILLET")) return "A";
-		if (reader.prevWord1("Au--cours-des")) return "A";
-		if (reader.prevWord1("(") && reader.nextWord1("exemplaires")) return "A";
-		if (reader.prevTag2("") && reader.prevTag1("CL")) return "CL";
-		if (reader.word === "une" && reader.nextTag1("P") && reader.nextTag2("D")) return "PRO";
-		if (reader.nextWord1("actuellement")) return "PRO";
-		if (reader.nextWord1("les")) return "PRO";
-		if (reader.prevWord1("années") && reader.word === "80") return "N";
+		if (r.w=="Toute" && r.n(-1,1,"") && r.n(1,1,"D")) return "A";
+		if (r.n(-1,0,"mardi") && r.n(1,0,"mai")) return "A";
+		if (r.n(1,0,"JUILLET")) return "A";
+		if (r.n(-1,0,"Au--cours-des")) return "A";
+		if (r.n(-1,0,"(") && r.n(1,0,"exemplaires")) return "A";
+		if (r.n(-2,1,"") && r.n(-1,1,"CL")) return "CL";
+		if (r.w=="une" && r.n(1,1,"P") && r.n(2,1,"D")) return "PRO";
+		if (r.n(1,0,"actuellement")) return "PRO";
+		if (r.n(1,0,"les")) return "PRO";
+		if (r.w=="80" && r.n(-1,0,"années")) return "N";
 		return "D";
 	}
-	if (reader.tag === "CL") {
-		if (reader.prevTag1("P") && reader.nextTag1("PONCT")) return "PRO";
-		if (reader.word === "s'" && reader.nextWord1("il")) return "C";
-		if (reader.nextWord1("aussi")) return "PRO";
-		if (reader.nextWord1("ils")) return "C";
-		if (reader.prevTag1("P") && reader.word === "elles") {
-			if (reader.prevWord1("comme") && reader.word === "elles") return "CL";
+	if (r.t=="CL") {
+		if (r.n(-1,1,"P") && r.n(1,1,"PONCT")) return "PRO";
+		if (r.w=="s'" && r.n(1,0,"il")) return "C";
+		if (r.n(1,0,"aussi")) return "PRO";
+		if (r.n(1,0,"ils")) return "C";
+		if (r.w=="elles" && r.n(-1,1,"P")) {
+			if (r.w=="elles" && r.n(-1,0,"comme")) return "CL";
 			return "PRO";
 		}
-		if (reader.prevWord1(",") && reader.nextWord1(",")) return "PRO";
-		if (reader.prevTag2("V") && reader.prevTag1("P") && reader.word === "lui") {
-			if (reader.nextWord1("trouver")) return "CL";
+		if (r.n(-1,0,",") && r.n(1,0,",")) return "PRO";
+		if (r.w=="lui" && r.n(-2,1,"V") && r.n(-1,1,"P")) {
+			if (r.n(1,0,"trouver")) return "CL";
 			return "PRO";
 		}
-		if (reader.prevTag1("P") && reader.word === "elle") {
-			if (reader.prevWord1("comme") && reader.word === "elle") return "CL";
+		if (r.w=="elle" && r.n(-1,1,"P")) {
+			if (r.w=="elle" && r.n(-1,0,"comme")) return "CL";
 			return "PRO";
 		}
-		if (reader.nextWord1("qui")) return "PRO";
-		if (reader.word === "lui" && reader.nextTag1("ADV")) return "PRO";
-		if (reader.word === "nous" && reader.nextWord1(",")) return "PRO";
-		if (reader.word === "nous" && reader.nextWord1("une")) return "PRO";
-		if (reader.prevTag1("P") && reader.word === "lui" && reader.nextTag1("P")) return "PRO";
-		if (reader.word === "nous" && reader.nextTag1("A")) return "PRO";
-		if (reader.prevTag1("P") && reader.word === "nous" && reader.nextTag1("P")) return "PRO";
+		if (r.n(1,0,"qui")) return "PRO";
+		if (r.w=="lui" && r.n(1,1,"ADV")) return "PRO";
+		if (r.w=="nous" && r.n(1,0,",")) return "PRO";
+		if (r.w=="nous" && r.n(1,0,"une")) return "PRO";
+		if (r.w=="lui" && r.n(-1,1,"P") && r.n(1,1,"P")) return "PRO";
+		if (r.w=="nous" && r.n(1,1,"A")) return "PRO";
+		if (r.w=="nous" && r.n(-1,1,"P") && r.n(1,1,"P")) return "PRO";
 		return "CL";
 	}
-	if (reader.tag === "I") return "I";
-	if (reader.tag === "PRO") {
-		if (reader.word === "Que" && reader.nextTag1("D")) return "C";
-		if (reader.word === "Certains" && reader.nextTag1("N")) return "D";
-		if (reader.prevTag1("D") && reader.word === "personne") return "N";
-		if (reader.word === "Tout" && reader.nextTag1("P")) return "ADV";
-		if (reader.word === "Tout" && reader.nextTag1("D")) return "A";
-		if (reader.prevTag1("A") && reader.word === "personne") return "N";
-		if (reader.word === "Tout" && reader.nextTag1("PRO") && reader.nextTag2("V")) return "A";
-		if (reader.nextWord1("francs")) return "D";
-		if (reader.word === "où" && reader.nextWord1("commence")) return "ADV";
-		if (reader.nextWord1("milliards")) return "D";
+	if (r.t=="I") return "I";
+	if (r.t=="PRO") {
+		if (r.w=="Que" && r.n(1,1,"D")) return "C";
+		if (r.w=="Certains" && r.n(1,1,"N")) return "D";
+		if (r.w=="personne" && r.n(-1,1,"D")) return "N";
+		if (r.w=="Tout" && r.n(1,1,"P")) return "ADV";
+		if (r.w=="Tout" && r.n(1,1,"D")) return "A";
+		if (r.w=="personne" && r.n(-1,1,"A")) return "N";
+		if (r.w=="Tout" && r.n(1,1,"PRO") && r.n(2,1,"V")) return "A";
+		if (r.n(1,0,"francs")) return "D";
+		if (r.w=="où" && r.n(1,0,"commence")) return "ADV";
+		if (r.n(1,0,"milliards")) return "D";
 		return "PRO";
 	}
-	if (reader.tag === "PREF") return "PREF";
-	if (reader.tag === "N") {
-		if (reader.prevTag1("CL")) {
-			if (reader.prevTag2("V") && reader.prevTag1("CL") && reader.word === "temps") return "N";
+	if (r.t=="PREF") return "PREF";
+	if (r.t=="N") {
+		if (r.n(-1,1,"CL")) {
+			if (r.w=="temps" && r.n(-2,1,"V") && r.n(-1,1,"CL")) return "N";
 			return "V";
 		}
-		if (reader.prevTag1("N") && reader.word === "politique") return "A";
-		if (reader.prevWord1("qui")) return "V";
-		if (reader.prevWord1("ne")) return "V";
-		if (reader.prevTag2("N") && reader.prevTag1("ADV")) {
-			if (reader.suffixL2("ée")) return "V";
-			if (reader.prevTag2("N") && reader.prevTag1("ADV") && reader.word === "Euronews") return "N";
-			if (reader.suffixL2("en")) return "N";
-			if (reader.nextWord1("par")) return "V";
-			if (reader.nextTag1("C") && reader.nextTag2("V")) return "V";
-			if (reader.prevWord1("n'")) return "V";
+		if (r.w=="politique" && r.n(-1,1,"N")) return "A";
+		if (r.n(-1,0,"qui")) return "V";
+		if (r.n(-1,0,"ne")) return "V";
+		if (r.n(-2,1,"N") && r.n(-1,1,"ADV")) {
+			if (r.s(-2,"ée")) return "V";
+			if (r.w=="Euronews" && r.n(-2,1,"N") && r.n(-1,1,"ADV")) return "N";
+			if (r.s(-2,"en")) return "N";
+			if (r.n(1,0,"par")) return "V";
+			if (r.n(1,1,"C") && r.n(2,1,"V")) return "V";
+			if (r.n(-1,0,"n'")) return "V";
 			return "A";
 		}
-		if (reader.prevTag1("N") && reader.word === "total") return "A";
-		if (reader.prevWord2("") && reader.word === "Est") return "V";
-		if (reader.prevTag1("N") && reader.word === "industriels") return "A";
-		if (reader.word === "jeunes" && reader.nextTag1("N")) return "A";
-		if (reader.prevTag1("V") && reader.word === "ensemble") return "ADV";
-		if (reader.prevTag1("N") && reader.word === "compte") return "V";
-		if (reader.prevTag1("N") && reader.word === "moyenne") return "A";
-		if (reader.prevWord1("pays")) {
-			if (reader.prevTag1("N") && reader.word === "membres") return "N";
+		if (r.w=="total" && r.n(-1,1,"N")) return "A";
+		if (r.w=="Est" && r.n(-2,0,"")) return "V";
+		if (r.w=="industriels" && r.n(-1,1,"N")) return "A";
+		if (r.w=="jeunes" && r.n(1,1,"N")) return "A";
+		if (r.w=="ensemble" && r.n(-1,1,"V")) return "ADV";
+		if (r.w=="compte" && r.n(-1,1,"N")) return "V";
+		if (r.w=="moyenne" && r.n(-1,1,"N")) return "A";
+		if (r.n(-1,0,"pays")) {
+			if (r.w=="membres" && r.n(-1,1,"N")) return "N";
 			return "A";
 		}
-		if (reader.word === "annonce" && reader.nextTag1("D")) return "V";
-		if (reader.word === "pouvoir" && reader.nextTag1("V")) {
-			if (reader.prevTag1("D")) return "N";
-			if (reader.prevWord1("du") && reader.word === "pouvoir") return "N";
+		if (r.w=="annonce" && r.n(1,1,"D")) return "V";
+		if (r.w=="pouvoir" && r.n(1,1,"V")) {
+			if (r.n(-1,1,"D")) return "N";
+			if (r.w=="pouvoir" && r.n(-1,0,"du")) return "N";
 			return "V";
 		}
-		if (reader.prevWord1("a")) {
-			if (reader.suffixL4("soin")) return "N";
-			if (reader.suffixL3("nce")) return "N";
+		if (r.n(-1,0,"a")) {
+			if (r.s(-4,"soin")) return "N";
+			if (r.s(-3,"nce")) return "N";
 			return "V";
 		}
-		if (reader.prevTag1("N") && reader.word === "automobiles") return "A";
-		if (reader.prevWord2("s'")) {
-			if (reader.nextTag1("N") && reader.nextTag2("N")) return "N";
-			if (reader.nextTag1("N") && reader.nextTag2("PONCT")) return "N";
-			if (reader.prevWord1("exprimant")) return "N";
+		if (r.w=="automobiles" && r.n(-1,1,"N")) return "A";
+		if (r.n(-2,0,"s'")) {
+			if (r.n(1,1,"N") && r.n(2,1,"N")) return "N";
+			if (r.n(1,1,"N") && r.n(2,1,"PONCT")) return "N";
+			if (r.n(-1,0,"exprimant")) return "N";
 			return "V";
 		}
-		if (reader.prevTag1("N") && reader.word === "automobile") return "A";
-		if (reader.prevTag1("N") && reader.word === "minimum") return "A";
-		if (reader.prevTag1("N") && reader.word === "immobilier") return "A";
-		if (reader.prevTag1("V") && reader.word === "prêts") return "A";
-		if (reader.prevWord1("est") && reader.word === "revenu") return "V";
-		if (reader.prevTag1("N") && reader.word === "professionnels") return "A";
-		if (reader.prevTag1("D") && reader.word === "demi" && reader.nextTag1("PONCT")) return "A";
-		if (reader.prevTag1("N") && reader.word === "informatique") return "A";
-		if (reader.prevTag2("D") && reader.prevTag1("ADV")) {
-			if (reader.suffixL2("té")) return "N";
-			if (reader.prevWord1("juste")) return "N";
-			if (reader.prevWord2("une")) return "N";
+		if (r.w=="automobile" && r.n(-1,1,"N")) return "A";
+		if (r.w=="minimum" && r.n(-1,1,"N")) return "A";
+		if (r.w=="immobilier" && r.n(-1,1,"N")) return "A";
+		if (r.w=="prêts" && r.n(-1,1,"V")) return "A";
+		if (r.w=="revenu" && r.n(-1,0,"est")) return "V";
+		if (r.w=="professionnels" && r.n(-1,1,"N")) return "A";
+		if (r.w=="demi" && r.n(-1,1,"D") && r.n(1,1,"PONCT")) return "A";
+		if (r.w=="informatique" && r.n(-1,1,"N")) return "A";
+		if (r.n(-2,1,"D") && r.n(-1,1,"ADV")) {
+			if (r.s(-2,"té")) return "N";
+			if (r.n(-1,0,"juste")) return "N";
+			if (r.n(-2,0,"une")) return "N";
 			return "A";
 		}
-		if (reader.prevWord2("") && reader.word === "Cinq") return "D";
-		if (reader.prevTag1("N") && reader.word === "produit") return "V";
-		if (reader.prevTag1("N") && reader.word === "personnel") return "A";
-		if (reader.prevTag1("N") && reader.word === "électronique") return "A";
-		if (reader.prevTag1("N") && reader.word === "frais") return "A";
-		if (reader.prevTag1("P") && reader.word === "lire") return "V";
-		if (reader.prevTag1("ET")) {
-			if (reader.prevWord1("Home.") && reader.word === "Fed") return "N";
-			if (reader.prevTag2("PONCT") && reader.prevTag1("ET") && reader.word === "mafia") return "N";
+		if (r.w=="Cinq" && r.n(-2,0,"")) return "D";
+		if (r.w=="produit" && r.n(-1,1,"N")) return "V";
+		if (r.w=="personnel" && r.n(-1,1,"N")) return "A";
+		if (r.w=="électronique" && r.n(-1,1,"N")) return "A";
+		if (r.w=="frais" && r.n(-1,1,"N")) return "A";
+		if (r.w=="lire" && r.n(-1,1,"P")) return "V";
+		if (r.n(-1,1,"ET")) {
+			if (r.w=="Fed" && r.n(-1,0,"Home.")) return "N";
+			if (r.w=="mafia" && r.n(-2,1,"PONCT") && r.n(-1,1,"ET")) return "N";
 			return "ET";
 		}
-		if (reader.prevTag1("N") && reader.word === "contraire") return "A";
-		if (reader.prevTag1("N") && reader.word === "communes") return "A";
-		if (reader.prevTag1("N") && reader.word === "pratiques") return "A";
-		if (reader.prevTag1("V") && reader.word === "reprise" && reader.nextTag1("P")) return "V";
-		if (reader.prevTag1("N") && reader.word === "demande") return "V";
-		if (reader.word === "marque" && reader.nextTag1("D")) return "V";
-		if (reader.prevTag1("V") && reader.word === "responsable") return "A";
-		if (reader.prevTag1("N") && reader.word === "intérieur") return "A";
-		if (reader.prevTag1("N") && reader.word === "essentiel") return "A";
-		if (reader.prevTag1("N") && reader.word === "étranger") return "A";
-		if (reader.prevTag1("V") && reader.word === "produit") return "V";
-		if (reader.prevTag1("V") && reader.word === "entrée") return "V";
-		if (reader.prevWord1("n'")) return "V";
-		if (reader.prevTag1("V") && reader.word === "pouvoir") return "V";
-		if (reader.prevTag1("N") && reader.word === "mécanique") return "A";
-		if (reader.prevWord1("comité") && reader.word === "directeur") return "A";
-		if (reader.prevWord1("très")) {
-			if (reader.prevTag2("P") && reader.prevTag1("ADV")) return "N";
+		if (r.w=="contraire" && r.n(-1,1,"N")) return "A";
+		if (r.w=="communes" && r.n(-1,1,"N")) return "A";
+		if (r.w=="pratiques" && r.n(-1,1,"N")) return "A";
+		if (r.w=="reprise" && r.n(-1,1,"V") && r.n(1,1,"P")) return "V";
+		if (r.w=="demande" && r.n(-1,1,"N")) return "V";
+		if (r.w=="marque" && r.n(1,1,"D")) return "V";
+		if (r.w=="responsable" && r.n(-1,1,"V")) return "A";
+		if (r.w=="intérieur" && r.n(-1,1,"N")) return "A";
+		if (r.w=="essentiel" && r.n(-1,1,"N")) return "A";
+		if (r.w=="étranger" && r.n(-1,1,"N")) return "A";
+		if (r.w=="produit" && r.n(-1,1,"V")) return "V";
+		if (r.w=="entrée" && r.n(-1,1,"V")) return "V";
+		if (r.n(-1,0,"n'")) return "V";
+		if (r.w=="pouvoir" && r.n(-1,1,"V")) return "V";
+		if (r.w=="mécanique" && r.n(-1,1,"N")) return "A";
+		if (r.w=="directeur" && r.n(-1,0,"comité")) return "A";
+		if (r.n(-1,0,"très")) {
+			if (r.n(-2,1,"P") && r.n(-1,1,"ADV")) return "N";
 			return "A";
 		}
-		if (reader.prevTag1("V") && reader.word === "point") return "ADV";
-		if (reader.prevTag1("") && reader.word === "Sept") return "D";
-		if (reader.prevTag1("V") && reader.word === "lire") return "V";
-		if (reader.word === "table" && reader.nextWord1("sur")) return "V";
-		if (reader.word === "correspondant" && reader.nextTag1("P") && reader.nextTag2("D")) return "V";
-		if (reader.prevWord1("(") && reader.word === "lire") return "V";
-		if (reader.word === "offre" && reader.nextTag1("D")) return "V";
-		if (reader.prevTag1("N") && reader.word === "socialistes") return "A";
-		if (reader.prevTag1("N") && reader.word === "particuliers") return "A";
-		if (reader.prevTag1("N") && reader.word === "équivalent") return "A";
-		if (reader.prevTag1("N") && reader.word === "intermédiaires") return "A";
-		if (reader.prevTag1("N") && reader.word === "personnels") return "A";
-		if (reader.prevTag1("N") && reader.word === "maximum" && reader.nextTag1("P")) return "A";
-		if (reader.prevWord1("peu")) return "A";
-		if (reader.prevWord1("caractère")) return "A";
-		if (reader.word === "92" && reader.nextTag1("N")) return "D";
-		if (reader.prevTag1("N") && reader.word === "signe") return "V";
-		if (reader.prevTag1("PONCT") && reader.word === "analyse") return "V";
-		if (reader.prevTag1("N") && reader.word === "intermédiaire") return "A";
-		if (reader.prevTag1("V") && reader.word === "essentiel") return "A";
-		if (reader.prevTag1("N") && reader.word === "effectif") return "A";
-		if (reader.prevTag1("N") && reader.word === "responsables" && reader.nextTag1("P")) return "A";
-		if (reader.prevTag1("N") && reader.word === "quotidiens") return "A";
-		if (reader.prevTag1("N") && reader.word === "logique") return "A";
-		if (reader.prevTag1("N") && reader.word === "moyens") return "A";
-		if (reader.word === "sud" && reader.nextTag1("PONCT") && reader.nextTag2("A")) return "A";
-		if (reader.prevTag1("N") && reader.word === "court-terme") return "A";
-		if (reader.prevWord1("soient")) return "A";
-		if (reader.prevWord1("dirigeants")) return "A";
-		if (reader.prevTag1("N") && reader.word === "quotidien") return "A";
-		if (reader.prevTag1("N") && reader.word === "nationalistes") return "A";
-		if (reader.prevTag1("N") && reader.word === "pétroliers") return "A";
-		if (reader.prevTag1("N") && reader.word === "audiovisuel") return "A";
-		if (reader.prevTag1("N") && reader.word === "ouvrier") return "A";
-		if (reader.word === "procédé" && reader.nextWord1("à")) return "V";
-		if (reader.prevWord1("temps") && reader.word === "presse") return "V";
-		if (reader.prevTag2("D") && reader.prevTag1("N") && reader.word === "menace") return "V";
-		if (reader.prevWord1("être")) {
-			if (reader.nextTag1("P") && reader.nextTag2("V")) return "N";
-			if (reader.suffixL2("re")) return "N";
-			if (reader.suffixL2("ur")) return "N";
-			if (reader.suffixL3("res")) return "N";
-			if (reader.nextWord2("cette")) return "N";
+		if (r.w=="point" && r.n(-1,1,"V")) return "ADV";
+		if (r.w=="Sept" && r.n(-1,1,"")) return "D";
+		if (r.w=="lire" && r.n(-1,1,"V")) return "V";
+		if (r.w=="table" && r.n(1,0,"sur")) return "V";
+		if (r.w=="correspondant" && r.n(1,1,"P") && r.n(2,1,"D")) return "V";
+		if (r.w=="lire" && r.n(-1,0,"(")) return "V";
+		if (r.w=="offre" && r.n(1,1,"D")) return "V";
+		if (r.w=="socialistes" && r.n(-1,1,"N")) return "A";
+		if (r.w=="particuliers" && r.n(-1,1,"N")) return "A";
+		if (r.w=="équivalent" && r.n(-1,1,"N")) return "A";
+		if (r.w=="intermédiaires" && r.n(-1,1,"N")) return "A";
+		if (r.w=="personnels" && r.n(-1,1,"N")) return "A";
+		if (r.w=="maximum" && r.n(-1,1,"N") && r.n(1,1,"P")) return "A";
+		if (r.n(-1,0,"peu")) return "A";
+		if (r.n(-1,0,"caractère")) return "A";
+		if (r.w=="92" && r.n(1,1,"N")) return "D";
+		if (r.w=="signe" && r.n(-1,1,"N")) return "V";
+		if (r.w=="analyse" && r.n(-1,1,"PONCT")) return "V";
+		if (r.w=="intermédiaire" && r.n(-1,1,"N")) return "A";
+		if (r.w=="essentiel" && r.n(-1,1,"V")) return "A";
+		if (r.w=="effectif" && r.n(-1,1,"N")) return "A";
+		if (r.w=="responsables" && r.n(-1,1,"N") && r.n(1,1,"P")) return "A";
+		if (r.w=="quotidiens" && r.n(-1,1,"N")) return "A";
+		if (r.w=="logique" && r.n(-1,1,"N")) return "A";
+		if (r.w=="moyens" && r.n(-1,1,"N")) return "A";
+		if (r.w=="sud" && r.n(1,1,"PONCT") && r.n(2,1,"A")) return "A";
+		if (r.w=="court-terme" && r.n(-1,1,"N")) return "A";
+		if (r.n(-1,0,"soient")) return "A";
+		if (r.n(-1,0,"dirigeants")) return "A";
+		if (r.w=="quotidien" && r.n(-1,1,"N")) return "A";
+		if (r.w=="nationalistes" && r.n(-1,1,"N")) return "A";
+		if (r.w=="pétroliers" && r.n(-1,1,"N")) return "A";
+		if (r.w=="audiovisuel" && r.n(-1,1,"N")) return "A";
+		if (r.w=="ouvrier" && r.n(-1,1,"N")) return "A";
+		if (r.w=="procédé" && r.n(1,0,"à")) return "V";
+		if (r.w=="presse" && r.n(-1,0,"temps")) return "V";
+		if (r.w=="menace" && r.n(-2,1,"D") && r.n(-1,1,"N")) return "V";
+		if (r.n(-1,0,"être")) {
+			if (r.n(1,1,"P") && r.n(2,1,"V")) return "N";
+			if (r.s(-2,"re")) return "N";
+			if (r.s(-2,"ur")) return "N";
+			if (r.s(-3,"res")) return "N";
+			if (r.n(2,0,"cette")) return "N";
 			return "V";
 		}
-		if (reader.prevTag1("N") && reader.word === "baisse") return "V";
-		if (reader.prevWord1("été")) {
-			if (reader.prevTag2("D") && reader.prevTag1("V")) return "N";
-			if (reader.nextWord2("la")) return "N";
-			if (reader.word === "bénéficiaires") return "A";
-			if (reader.prevWord1("été") && reader.nextWord1("en")) return "N";
+		if (r.w=="baisse" && r.n(-1,1,"N")) return "V";
+		if (r.n(-1,0,"été")) {
+			if (r.n(-2,1,"D") && r.n(-1,1,"V")) return "N";
+			if (r.n(2,0,"la")) return "N";
+			if (r.w=="bénéficiaires") return "A";
+			if (r.n(-1,0,"été") && r.n(1,0,"en")) return "N";
 			return "V";
 		}
-		if (reader.prevTag1("N") && reader.word === "part") return "V";
-		if (reader.prevWord1(",") && reader.nextWord1("les")) return "V";
-		if (reader.prevWord1("sont") && reader.nextWord1("dans")) return "V";
-		if (reader.prevTag1("N") && reader.word === "produits") return "V";
-		if (reader.word === "annonce" && reader.nextTag1("ADV")) return "V";
-		if (reader.prevWord2("le") && reader.word === "Plan") return "ET";
-		if (reader.prevWord1("revenu")) return "A";
-		if (reader.prevTag2("D") && reader.prevTag1("N") && reader.word === "miracle") return "A";
-		if (reader.prevTag1("N") && reader.word === "mort") return "A";
-		if (reader.prevTag1("N") && reader.word === "juifs") return "A";
-		if (reader.prevTag1("N") && reader.word === "centrales") return "A";
-		if (reader.prevWord1("marchés")) return "A";
-		if (reader.prevTag1("N") && reader.word === "boursiers") return "A";
-		if (reader.word === "directeurs" && reader.nextTag1("PONCT")) return "A";
-		if (reader.prevWord1("nécessairement")) return "A";
-		if (reader.prevTag1("PONCT") && reader.word === "politique") {
-			if (reader.prevTag2("D")) return "N";
+		if (r.w=="part" && r.n(-1,1,"N")) return "V";
+		if (r.n(-1,0,",") && r.n(1,0,"les")) return "V";
+		if (r.n(-1,0,"sont") && r.n(1,0,"dans")) return "V";
+		if (r.w=="produits" && r.n(-1,1,"N")) return "V";
+		if (r.w=="annonce" && r.n(1,1,"ADV")) return "V";
+		if (r.w=="Plan" && r.n(-2,0,"le")) return "ET";
+		if (r.n(-1,0,"revenu")) return "A";
+		if (r.w=="miracle" && r.n(-2,1,"D") && r.n(-1,1,"N")) return "A";
+		if (r.w=="mort" && r.n(-1,1,"N")) return "A";
+		if (r.w=="juifs" && r.n(-1,1,"N")) return "A";
+		if (r.w=="centrales" && r.n(-1,1,"N")) return "A";
+		if (r.n(-1,0,"marchés")) return "A";
+		if (r.w=="boursiers" && r.n(-1,1,"N")) return "A";
+		if (r.w=="directeurs" && r.n(1,1,"PONCT")) return "A";
+		if (r.n(-1,0,"nécessairement")) return "A";
+		if (r.w=="politique" && r.n(-1,1,"PONCT")) {
+			if (r.n(-2,1,"D")) return "N";
 			return "A";
 		}
-		if (reader.prevTag1("N") && reader.word === "titulaires" && reader.nextTag1("P")) return "A";
-		if (reader.prevTag2("D") && reader.prevTag1("N") && reader.word === "mandataires") return "A";
-		if (reader.prevTag1("N") && reader.word === "statistique") return "A";
-		if (reader.prevTag1("N") && reader.word === "voisins") return "A";
-		if (reader.prevTag1("V") && reader.word === "logique") return "A";
-		if (reader.prevTag1("N") && reader.word === "salarié") return "A";
-		if (reader.prevTag1("N") && reader.word === "moyen-terme") return "A";
-		if (reader.word === "jeunes" && reader.nextTag1("A")) return "A";
-		if (reader.prevWord1("Etats") && reader.nextWord1(",")) return "A";
-		if (reader.word === "super" && reader.nextWord1("-")) return "A";
-		if (reader.prevWord1("éléments")) return "A";
-		if (reader.prevTag2("D") && reader.prevTag1("N") && reader.word === "outre---Atlantique") return "A";
-		if (reader.prevTag1("C") && reader.word === "politique") return "A";
-		if (reader.prevTag2("D") && reader.prevTag1("N") && reader.word === "salariés") return "A";
-		if (reader.prevWord1("autorités")) return "A";
-		if (reader.prevWord1("est") && reader.nextWord1(".")) {
-			if (reader.suffixL4("")) return "V";
+		if (r.w=="titulaires" && r.n(-1,1,"N") && r.n(1,1,"P")) return "A";
+		if (r.w=="mandataires" && r.n(-2,1,"D") && r.n(-1,1,"N")) return "A";
+		if (r.w=="statistique" && r.n(-1,1,"N")) return "A";
+		if (r.w=="voisins" && r.n(-1,1,"N")) return "A";
+		if (r.w=="logique" && r.n(-1,1,"V")) return "A";
+		if (r.w=="salarié" && r.n(-1,1,"N")) return "A";
+		if (r.w=="moyen-terme" && r.n(-1,1,"N")) return "A";
+		if (r.w=="jeunes" && r.n(1,1,"A")) return "A";
+		if (r.n(-1,0,"Etats") && r.n(1,0,",")) return "A";
+		if (r.w=="super" && r.n(1,0,"-")) return "A";
+		if (r.n(-1,0,"éléments")) return "A";
+		if (r.w=="outre---Atlantique" && r.n(-2,1,"D") && r.n(-1,1,"N")) return "A";
+		if (r.w=="politique" && r.n(-1,1,"C")) return "A";
+		if (r.w=="salariés" && r.n(-2,1,"D") && r.n(-1,1,"N")) return "A";
+		if (r.n(-1,0,"autorités")) return "A";
+		if (r.n(-1,0,"est") && r.n(1,0,".")) {
+			if (r.s(-4,"")) return "V";
 			return "A";
 		}
-		if (reader.prevTag1("N") && reader.word === "fondateurs") return "A";
-		if (reader.prevWord1("un") && reader.word === "fin") return "A";
-		if (reader.prevWord1("les") && reader.word === "Douze") return "A";
-		if (reader.prevTag2("N") && reader.prevTag1("A") && reader.word === "moyenne") return "A";
-		if (reader.prevTag2("V") && reader.prevTag1("A") && reader.word === "ensemble") return "ADV";
-		if (reader.prevWord1("qu'") && reader.nextWord1(".")) return "ADV";
-		if (reader.prevTag1("N") && reader.word === "point") return "ADV";
-		if (reader.prevTag1("") && reader.word === "Douze" && reader.nextTag1("N")) return "D";
-		if (reader.prevTag1("N") && reader.word === "pratique") {
-			if (reader.prevWord2("l'")) return "A";
+		if (r.w=="fondateurs" && r.n(-1,1,"N")) return "A";
+		if (r.w=="fin" && r.n(-1,0,"un")) return "A";
+		if (r.w=="Douze" && r.n(-1,0,"les")) return "A";
+		if (r.w=="moyenne" && r.n(-2,1,"N") && r.n(-1,1,"A")) return "A";
+		if (r.w=="ensemble" && r.n(-2,1,"V") && r.n(-1,1,"A")) return "ADV";
+		if (r.n(-1,0,"qu'") && r.n(1,0,".")) return "ADV";
+		if (r.w=="point" && r.n(-1,1,"N")) return "ADV";
+		if (r.w=="Douze" && r.n(-1,1,"") && r.n(1,1,"N")) return "D";
+		if (r.w=="pratique" && r.n(-1,1,"N")) {
+			if (r.n(-2,0,"l'")) return "A";
 			return "V";
 		}
-		if (reader.word === "demande" && reader.nextTag1("D")) return "V";
-		if (reader.prevTag1("N") && reader.word === "faits") return "V";
-		if (reader.prevTag1("A") && reader.word === "demande") return "V";
-		if (reader.prevTag1("N") && reader.word === "rencontre") return "V";
-		if (reader.prevTag1("P") && reader.word === "pouvoir" && reader.nextTag1("CL")) return "V";
-		if (reader.word === "table" && reader.nextTag1("ADV")) return "V";
-		if (reader.prevTag1("A") && reader.word === "compte" && reader.nextTag1("D")) return "V";
-		if (reader.prevTag1("PONCT") && reader.word === "revenu" && reader.nextTag1("P")) return "V";
-		if (reader.word === "débouché" && reader.nextTag1("P") && reader.nextTag2("D")) return "V";
-		if (reader.prevWord1(",") && reader.nextWord1("l'")) return "V";
-		if (reader.nextWord1("-vous")) return "V";
-		if (reader.prevWord1("chacun")) return "V";
-		if (reader.prevTag1("N") && reader.word === "employés") return "V";
-		if (reader.word === "cité" && reader.nextTag1("P") && reader.nextTag2("D")) return "V";
-		if (reader.prevTag1("V") && reader.word === "portée") return "V";
-		if (reader.prevWord1("avait")) return "V";
-		if (reader.prevTag1("N") && reader.word === "contrôle") return "V";
-		if (reader.suffixL4("ctÃ©")) return "V";
-		if (reader.prevTag1("N") && reader.word === "conduite") return "V";
-		if (reader.nextWord1("and")) return "ET";
-		if (reader.prevWord2("and")) return "ET";
-		if (reader.nextWord1("Act")) return "ET";
+		if (r.w=="demande" && r.n(1,1,"D")) return "V";
+		if (r.w=="faits" && r.n(-1,1,"N")) return "V";
+		if (r.w=="demande" && r.n(-1,1,"A")) return "V";
+		if (r.w=="rencontre" && r.n(-1,1,"N")) return "V";
+		if (r.w=="pouvoir" && r.n(-1,1,"P") && r.n(1,1,"CL")) return "V";
+		if (r.w=="table" && r.n(1,1,"ADV")) return "V";
+		if (r.w=="compte" && r.n(-1,1,"A") && r.n(1,1,"D")) return "V";
+		if (r.w=="revenu" && r.n(-1,1,"PONCT") && r.n(1,1,"P")) return "V";
+		if (r.w=="débouché" && r.n(1,1,"P") && r.n(2,1,"D")) return "V";
+		if (r.n(-1,0,",") && r.n(1,0,"l'")) return "V";
+		if (r.n(1,0,"-vous")) return "V";
+		if (r.n(-1,0,"chacun")) return "V";
+		if (r.w=="employés" && r.n(-1,1,"N")) return "V";
+		if (r.w=="cité" && r.n(1,1,"P") && r.n(2,1,"D")) return "V";
+		if (r.w=="portée" && r.n(-1,1,"V")) return "V";
+		if (r.n(-1,0,"avait")) return "V";
+		if (r.w=="contrôle" && r.n(-1,1,"N")) return "V";
+		if (r.s(-4,"ctÃ©")) return "V";
+		if (r.w=="conduite" && r.n(-1,1,"N")) return "V";
+		if (r.n(1,0,"and")) return "ET";
+		if (r.n(-2,0,"and")) return "ET";
+		if (r.n(1,0,"Act")) return "ET";
 		return "N";
 	}
-	if (reader.tag === "P") {
-		if (reader.prevTag1("P") && reader.word === "des") return "D";
-		if (reader.prevTag1("V") && reader.word === "des") {
-			if (reader.prevWord2("le") && reader.word === "des") return "P";
-			if (reader.word === "des" && reader.nextTag1("D") && reader.nextTag2("N")) return "P";
-			if (reader.prevWord1("chargé") && reader.word === "des") return "P";
-			if (reader.word === "des" && reader.nextWord1("Etats---Unis")) return "P";
-			if (reader.prevWord1("sortir") && reader.word === "des") return "P";
-			if (reader.prevWord2("Le")) return "P";
-			if (reader.prevWord1("tenir-compte") && reader.word === "des") return "P";
-			if (reader.prevWord2("bien") && reader.word === "des") return "P";
-			if (reader.prevWord2("la")) return "P";
-			if (reader.prevWord1("tenu")) return "P";
-			if (reader.prevWord1("tenant-compte") && reader.word === "des") return "P";
-			if (reader.prevWord1("parler") && reader.word === "des") return "P";
-			if (reader.prevWord1("agissant") && reader.word === "des") return "P";
-			if (reader.prevWord1("sorti") && reader.word === "des") return "P";
-			if (reader.prevWord2("l'")) return "P";
-			if (reader.prevWord1("profiter") && reader.word === "des") return "P";
-			if (reader.prevWord2("du")) return "P";
-			if (reader.word === "des" && reader.nextWord2("saisonnières")) return "P";
-			if (reader.prevWord2("seront") && reader.word === "des") return "P";
-			if (reader.prevWord2("s'") && reader.prevWord1("agisse") && reader.word === "des") return "P";
-			if (reader.prevWord1("fait-partie") && reader.word === "des") return "P";
-			if (reader.word === "des" && reader.nextWord1("exportations")) return "P";
-			if (reader.prevTag1("V") && reader.word === "des" && reader.nextTag1("PRO")) return "P";
-			if (reader.prevWord2("une")) return "P";
-			if (reader.word === "des" && reader.nextWord1("activités")) return "P";
-			if (reader.prevWord1("informé")) return "P";
-			if (reader.nextTag1("ADV")) return "P";
-			if (reader.prevWord1("issu") && reader.word === "des") return "P";
-			if (reader.prevWord1("bénéficient") && reader.word === "des") return "P";
-			if (reader.prevWord1("exigent") && reader.word === "des") return "P";
-			if (reader.prevWord1("dépend")) return "P";
-			if (reader.nextWord1("pays")) return "P";
-			if (reader.nextWord2("les")) return "P";
-			if (reader.prevWord2("plus")) return "P";
-			if (reader.prevWord1("parlant")) return "P";
-			if (reader.prevWord1("relèvent")) return "P";
-			if (reader.prevWord2("emploi")) return "P";
-			if (reader.prevWord1("chargée")) return "P";
-			if (reader.prevWord1("parle")) return "P";
-			if (reader.prevWord2("de-plus-en-plus")) return "P";
-			if (reader.prevWord2("de") && reader.prevWord1("bénéficier") && reader.word === "des") return "P";
-			if (reader.word === "des" && reader.nextWord2("nationales")) return "P";
-			if (reader.nextWord1("pouvoirs-publics")) return "P";
-			if (reader.prevWord1("émanant")) return "P";
-			if (reader.prevWord2("que") && reader.prevWord1("dire") && reader.word === "des") return "P";
+	if (r.t=="P") {
+		if (r.w=="des" && r.n(-1,1,"P")) return "D";
+		if (r.w=="des" && r.n(-1,1,"V")) {
+			if (r.w=="des" && r.n(-2,0,"le")) return "P";
+			if (r.w=="des" && r.n(1,1,"D") && r.n(2,1,"N")) return "P";
+			if (r.w=="des" && r.n(-1,0,"chargé")) return "P";
+			if (r.w=="des" && r.n(1,0,"Etats---Unis")) return "P";
+			if (r.w=="des" && r.n(-1,0,"sortir")) return "P";
+			if (r.n(-2,0,"Le")) return "P";
+			if (r.w=="des" && r.n(-1,0,"tenir-compte")) return "P";
+			if (r.w=="des" && r.n(-2,0,"bien")) return "P";
+			if (r.n(-2,0,"la")) return "P";
+			if (r.n(-1,0,"tenu")) return "P";
+			if (r.w=="des" && r.n(-1,0,"tenant-compte")) return "P";
+			if (r.w=="des" && r.n(-1,0,"parler")) return "P";
+			if (r.w=="des" && r.n(-1,0,"agissant")) return "P";
+			if (r.w=="des" && r.n(-1,0,"sorti")) return "P";
+			if (r.n(-2,0,"l'")) return "P";
+			if (r.w=="des" && r.n(-1,0,"profiter")) return "P";
+			if (r.n(-2,0,"du")) return "P";
+			if (r.w=="des" && r.n(2,0,"saisonnières")) return "P";
+			if (r.w=="des" && r.n(-2,0,"seront")) return "P";
+			if (r.w=="des" && r.n(-2,0,"s'") && r.n(-1,0,"agisse")) return "P";
+			if (r.w=="des" && r.n(-1,0,"fait-partie")) return "P";
+			if (r.w=="des" && r.n(1,0,"exportations")) return "P";
+			if (r.w=="des" && r.n(-1,1,"V") && r.n(1,1,"PRO")) return "P";
+			if (r.n(-2,0,"une")) return "P";
+			if (r.w=="des" && r.n(1,0,"activités")) return "P";
+			if (r.n(-1,0,"informé")) return "P";
+			if (r.n(1,1,"ADV")) return "P";
+			if (r.w=="des" && r.n(-1,0,"issu")) return "P";
+			if (r.w=="des" && r.n(-1,0,"bénéficient")) return "P";
+			if (r.w=="des" && r.n(-1,0,"exigent")) return "P";
+			if (r.n(-1,0,"dépend")) return "P";
+			if (r.n(1,0,"pays")) return "P";
+			if (r.n(2,0,"les")) return "P";
+			if (r.n(-2,0,"plus")) return "P";
+			if (r.n(-1,0,"parlant")) return "P";
+			if (r.n(-1,0,"relèvent")) return "P";
+			if (r.n(-2,0,"emploi")) return "P";
+			if (r.n(-1,0,"chargée")) return "P";
+			if (r.n(-1,0,"parle")) return "P";
+			if (r.n(-2,0,"de-plus-en-plus")) return "P";
+			if (r.w=="des" && r.n(-2,0,"de") && r.n(-1,0,"bénéficier")) return "P";
+			if (r.w=="des" && r.n(2,0,"nationales")) return "P";
+			if (r.n(1,0,"pouvoirs-publics")) return "P";
+			if (r.n(-1,0,"émanant")) return "P";
+			if (r.w=="des" && r.n(-2,0,"que") && r.n(-1,0,"dire")) return "P";
 			return "D";
 		}
-		if (reader.prevTag1("CL") && reader.word === "en") {
-			if (reader.prevWord1("-on")) return "P";
+		if (r.w=="en" && r.n(-1,1,"CL")) {
+			if (r.n(-1,0,"-on")) return "P";
 			return "CL";
 		}
-		if (reader.prevTag1("PONCT") && reader.word === "des" && reader.nextTag1("N")) {
-			if (reader.nextWord2("du")) return "P";
-			if (reader.prevWord1("''") && reader.word === "des" && reader.nextWord1("années")) return "P";
-			if (reader.nextWord1("fonctionnaires")) return "P";
-			if (reader.word === "des" && reader.nextWord1("suites")) return "P";
-			if (reader.word === "des" && reader.nextWord1("services-financiers") && reader.nextWord2("et")) return "P";
-			if (reader.prevWord2("prix") && reader.word === "des") return "P";
-			if (reader.nextWord1("syndicats")) return "P";
-			if (reader.nextWord1("pays")) return "P";
-			if (reader.prevWord2("pour-l'-essentiel") && reader.prevWord1(",") && reader.word === "des") return "P";
-			if (reader.word === "des" && reader.nextWord2("apportées")) return "P";
-			if (reader.prevWord2("%") && reader.prevWord1(")") && reader.word === "des") return "P";
-			if (reader.nextWord1("sociétés")) return "P";
-			if (reader.prevWord1("''") && reader.nextWord1("taux")) return "P";
-			if (reader.word === "des" && reader.nextWord1("entreprises") && reader.nextWord2("et")) return "P";
+		if (r.w=="des" && r.n(-1,1,"PONCT") && r.n(1,1,"N")) {
+			if (r.n(2,0,"du")) return "P";
+			if (r.w=="des" && r.n(-1,0,"''") && r.n(1,0,"années")) return "P";
+			if (r.n(1,0,"fonctionnaires")) return "P";
+			if (r.w=="des" && r.n(1,0,"suites")) return "P";
+			if (r.w=="des" && r.n(1,0,"services-financiers") && r.n(2,0,"et")) return "P";
+			if (r.w=="des" && r.n(-2,0,"prix")) return "P";
+			if (r.n(1,0,"syndicats")) return "P";
+			if (r.n(1,0,"pays")) return "P";
+			if (r.w=="des" && r.n(-2,0,"pour-l'-essentiel") && r.n(-1,0,",")) return "P";
+			if (r.w=="des" && r.n(2,0,"apportées")) return "P";
+			if (r.w=="des" && r.n(-2,0,"%") && r.n(-1,0,")")) return "P";
+			if (r.n(1,0,"sociétés")) return "P";
+			if (r.n(-1,0,"''") && r.n(1,0,"taux")) return "P";
+			if (r.w=="des" && r.n(1,0,"entreprises") && r.n(2,0,"et")) return "P";
 			return "D";
 		}
-		if (reader.prevTag1("P") && reader.nextTag1("A")) {
-			if (reader.suffixL2("de")) return "P";
-			if (reader.word === "au" && reader.nextTag1("A")) return "P";
-			if (reader.prevWord1("y-compris")) return "P";
-			if (reader.nextTag2("D")) return "P";
-			if (reader.nextWord2("%")) return "P";
+		if (r.n(-1,1,"P") && r.n(1,1,"A")) {
+			if (r.s(-2,"de")) return "P";
+			if (r.w=="au" && r.n(1,1,"A")) return "P";
+			if (r.n(-1,0,"y-compris")) return "P";
+			if (r.n(2,1,"D")) return "P";
+			if (r.n(2,0,"%")) return "P";
 			return "D";
 		}
-		if (reader.prevTag2("V") && reader.prevTag1("ADV") && reader.word === "des") {
-			if (reader.prevWord2("attend")) return "P";
-			if (reader.nextWord1("deux")) return "P";
-			if (reader.prevWord2("bénéficient")) return "P";
-			if (reader.prevWord2("parle") && reader.word === "des") return "P";
-			if (reader.word === "des" && reader.nextWord2("des")) return "P";
-			if (reader.prevWord2("agit") && reader.word === "des") return "P";
-			if (reader.word === "des" && reader.nextWord2("et")) return "P";
+		if (r.w=="des" && r.n(-2,1,"V") && r.n(-1,1,"ADV")) {
+			if (r.n(-2,0,"attend")) return "P";
+			if (r.n(1,0,"deux")) return "P";
+			if (r.n(-2,0,"bénéficient")) return "P";
+			if (r.w=="des" && r.n(-2,0,"parle")) return "P";
+			if (r.w=="des" && r.n(2,0,"des")) return "P";
+			if (r.w=="des" && r.n(-2,0,"agit")) return "P";
+			if (r.w=="des" && r.n(2,0,"et")) return "P";
 			return "D";
 		}
-		if (reader.prevWord1("n'") && reader.word === "en") return "CL";
-		if (reader.prevTag1("P") && reader.word === "en" && reader.nextTag1("V")) {
-			if (reader.prevWord1("y-compris")) return "P";
+		if (r.w=="en" && r.n(-1,0,"n'")) return "CL";
+		if (r.w=="en" && r.n(-1,1,"P") && r.n(1,1,"V")) {
+			if (r.n(-1,0,"y-compris")) return "P";
 			return "CL";
 		}
-		if (reader.prevWord1("que") && reader.word === "des") return "D";
-		if (reader.word === "comme" && reader.nextTag1("D") && reader.nextTag2("V")) {
-			if (reader.prevWord2("la") && reader.word === "comme") return "P";
+		if (r.w=="des" && r.n(-1,0,"que")) return "D";
+		if (r.w=="comme" && r.n(1,1,"D") && r.n(2,1,"V")) {
+			if (r.w=="comme" && r.n(-2,0,"la")) return "P";
 			return "C";
 		}
-		if (reader.word === "comme" && reader.nextTag1("CL")) {
-			if (reader.prevTag2("P")) return "P";
+		if (r.w=="comme" && r.n(1,1,"CL")) {
+			if (r.n(-2,1,"P")) return "P";
 			return "C";
 		}
-		if (reader.word === "d'" && reader.nextWord1("autres")) {
-			if (reader.prevWord2("la")) return "P";
-			if (reader.nextWord2("produits")) return "P";
-			if (reader.prevWord1("beaucoup")) return "P";
-			if (reader.prevWord1("ceux")) return "P";
+		if (r.w=="d'" && r.n(1,0,"autres")) {
+			if (r.n(-2,0,"la")) return "P";
+			if (r.n(2,0,"produits")) return "P";
+			if (r.n(-1,0,"beaucoup")) return "P";
+			if (r.n(-1,0,"ceux")) return "P";
 			return "D";
 		}
-		if (reader.prevTag1("PRO") && reader.word === "en" && reader.nextTag1("V")) {
-			if (reader.prevWord1("Tout") && reader.word === "en") return "P";
+		if (r.w=="en" && r.n(-1,1,"PRO") && r.n(1,1,"V")) {
+			if (r.w=="en" && r.n(-1,0,"Tout")) return "P";
 			return "CL";
 		}
-		if (reader.word === "D'" && reader.nextTag1("A")) return "D";
-		if (reader.word === "devant" && reader.nextTag1("V")) return "V";
-		if (reader.nextWord1("a")) return "CL";
-		if (reader.prevTag1("") && reader.word === "des") return "D";
-		if (reader.word === "en" && reader.nextWord1("est")) return "CL";
-		if (reader.word === "De" && reader.nextTag1("A") && reader.nextTag2("N")) return "D";
-		if (reader.prevWord1("bien") && reader.word === "des") return "D";
-		if (reader.word === "de" && reader.nextWord1("nouvelles")) {
-			if (reader.prevWord2("en") && reader.word === "de") return "P";
-			if (reader.prevWord2("la")) return "P";
-			if (reader.prevWord2("l'")) return "P";
-			if (reader.nextWord2("émissions")) return "P";
+		if (r.w=="D'" && r.n(1,1,"A")) return "D";
+		if (r.w=="devant" && r.n(1,1,"V")) return "V";
+		if (r.n(1,0,"a")) return "CL";
+		if (r.w=="des" && r.n(-1,1,"")) return "D";
+		if (r.w=="en" && r.n(1,0,"est")) return "CL";
+		if (r.w=="De" && r.n(1,1,"A") && r.n(2,1,"N")) return "D";
+		if (r.w=="des" && r.n(-1,0,"bien")) return "D";
+		if (r.w=="de" && r.n(1,0,"nouvelles")) {
+			if (r.w=="de" && r.n(-2,0,"en")) return "P";
+			if (r.n(-2,0,"la")) return "P";
+			if (r.n(-2,0,"l'")) return "P";
+			if (r.n(2,0,"émissions")) return "P";
 			return "D";
 		}
-		if (reader.word === "en" && reader.nextWord1("sont")) return "CL";
-		if (reader.prevTag1("PONCT") && reader.word === "comme" && reader.nextTag1("V")) {
-			if (reader.nextTag1("V") && reader.nextTag2("PONCT")) return "P";
+		if (r.w=="en" && r.n(1,0,"sont")) return "CL";
+		if (r.w=="comme" && r.n(-1,1,"PONCT") && r.n(1,1,"V")) {
+			if (r.n(1,1,"V") && r.n(2,1,"PONCT")) return "P";
 			return "C";
 		}
-		if (reader.word === "de" && reader.nextWord1("nombreuses")) {
-			if (reader.prevTag2("D") && reader.prevTag1("N") && reader.word === "de") return "P";
+		if (r.w=="de" && r.n(1,0,"nombreuses")) {
+			if (r.w=="de" && r.n(-2,1,"D") && r.n(-1,1,"N")) return "P";
 			return "D";
 		}
-		if (reader.word === "depuis" && reader.nextTag1("PONCT")) return "ADV";
-		if (reader.word === "Comme" && reader.nextTag1("CL")) return "C";
-		if (reader.word === "Comme" && reader.nextTag1("D") && reader.nextTag2("V")) return "C";
-		if (reader.prevTag1("CL") && reader.word === "des" && reader.nextTag1("N")) return "D";
-		if (reader.word === "du" && reader.nextWord1("mal") && reader.nextWord2("à")) return "D";
-		if (reader.word === "A" && reader.nextWord2("ANS")) return "V";
-		if (reader.word === "entre" && reader.nextTag1("P") && reader.nextTag2("D")) return "V";
-		if (reader.prevTag2("CL") && reader.prevTag1("N") && reader.word === "des") return "D";
-		if (reader.prevTag2("ADV") && reader.prevTag1("ADV") && reader.word === "des") {
-			if (reader.prevWord1("loin") && reader.word === "des") return "P";
+		if (r.w=="depuis" && r.n(1,1,"PONCT")) return "ADV";
+		if (r.w=="Comme" && r.n(1,1,"CL")) return "C";
+		if (r.w=="Comme" && r.n(1,1,"D") && r.n(2,1,"V")) return "C";
+		if (r.w=="des" && r.n(-1,1,"CL") && r.n(1,1,"N")) return "D";
+		if (r.w=="du" && r.n(1,0,"mal") && r.n(2,0,"à")) return "D";
+		if (r.w=="A" && r.n(2,0,"ANS")) return "V";
+		if (r.w=="entre" && r.n(1,1,"P") && r.n(2,1,"D")) return "V";
+		if (r.w=="des" && r.n(-2,1,"CL") && r.n(-1,1,"N")) return "D";
+		if (r.w=="des" && r.n(-2,1,"ADV") && r.n(-1,1,"ADV")) {
+			if (r.w=="des" && r.n(-1,0,"loin")) return "P";
 			return "D";
 		}
-		if (reader.prevTag2("") && reader.prevTag1("C") && reader.word === "des") return "D";
-		if (reader.nextWord1("témoignent")) return "CL";
-		if (reader.prevWord1("le")) {
-			if (reader.nextWord1(":")) return "A";
+		if (r.w=="des" && r.n(-2,1,"") && r.n(-1,1,"C")) return "D";
+		if (r.n(1,0,"témoignent")) return "CL";
+		if (r.n(-1,0,"le")) {
+			if (r.n(1,0,":")) return "A";
 			return "N";
 		}
-		if (reader.prevWord1("") && reader.word === "Depuis" && reader.nextWord1(",")) return "ADV";
-		if (reader.word === "comme" && reader.nextWord1("cela")) return "C";
-		if (reader.prevTag1("ADV") && reader.word === "d'" && reader.nextTag1("A")) return "D";
-		if (reader.prevWord1("ainsi-que") && reader.word === "des") return "D";
-		if (reader.word === "de" && reader.nextWord1("sérieuses")) return "D";
-		if (reader.nextWord1(".")) {
-			if (reader.prevTag2("N")) return "N";
+		if (r.w=="Depuis" && r.n(-1,0,"") && r.n(1,0,",")) return "ADV";
+		if (r.w=="comme" && r.n(1,0,"cela")) return "C";
+		if (r.w=="d'" && r.n(-1,1,"ADV") && r.n(1,1,"A")) return "D";
+		if (r.w=="des" && r.n(-1,0,"ainsi-que")) return "D";
+		if (r.w=="de" && r.n(1,0,"sérieuses")) return "D";
+		if (r.n(1,0,".")) {
+			if (r.n(-2,1,"N")) return "N";
 			return "ADV";
 		}
-		if (reader.word === "depuis" && reader.nextTag1("V")) return "ADV";
-		if (reader.prevWord1(",") && reader.word === "comme" && reader.nextWord1("en")) {
-			if (reader.nextTag1("P") && reader.nextTag2("N")) return "P";
+		if (r.w=="depuis" && r.n(1,1,"V")) return "ADV";
+		if (r.w=="comme" && r.n(-1,0,",") && r.n(1,0,"en")) {
+			if (r.n(1,1,"P") && r.n(2,1,"N")) return "P";
 			return "C";
 		}
-		if (reader.nextWord1("véritables")) return "D";
-		if (reader.prevWord2(",") && reader.prevWord1("et") && reader.word === "des") return "D";
-		if (reader.prevTag2("D") && reader.prevTag1("C") && reader.word === "des") return "D";
-		if (reader.nextWord1("nombreux")) {
-			if (reader.prevTag2("D") && reader.prevTag1("N")) return "P";
-			if (reader.suffixL2("de")) return "P";
+		if (r.n(1,0,"véritables")) return "D";
+		if (r.w=="des" && r.n(-2,0,",") && r.n(-1,0,"et")) return "D";
+		if (r.w=="des" && r.n(-2,1,"D") && r.n(-1,1,"C")) return "D";
+		if (r.n(1,0,"nombreux")) {
+			if (r.n(-2,1,"D") && r.n(-1,1,"N")) return "P";
+			if (r.s(-2,"de")) return "P";
 			return "D";
 		}
-		if (reader.prevWord1(",") && reader.word === "des") {
-			if (reader.prevTag1("PONCT") && reader.nextTag1("D")) return "P";
-			if (reader.prevTag1("PONCT") && reader.word === "des" && reader.nextTag1("ADV")) return "P";
-			if (reader.word === "des" && reader.nextWord2(".")) return "P";
+		if (r.w=="des" && r.n(-1,0,",")) {
+			if (r.n(-1,1,"PONCT") && r.n(1,1,"D")) return "P";
+			if (r.w=="des" && r.n(-1,1,"PONCT") && r.n(1,1,"ADV")) return "P";
+			if (r.w=="des" && r.n(2,0,".")) return "P";
 			return "D";
 		}
-		if (reader.prevWord1("si") && reader.word === "des") return "D";
-		if (reader.prevWord2("ont") && reader.prevWord1("pas") && reader.word === "de") return "D";
-		if (reader.nextWord1("sera")) return "CL";
-		if (reader.word === "en" && reader.nextWord1("ont")) return "CL";
-		if (reader.word === "devant" && reader.nextTag1("ADV")) return "V";
-		if (reader.prevTag1("V") && reader.word === "plus-d'") return "ADV";
-		if (reader.nextTag1("C") && reader.nextTag2("CL")) {
-			if (reader.word === "pour" && reader.nextWord1("que")) return "P";
+		if (r.w=="des" && r.n(-1,0,"si")) return "D";
+		if (r.w=="de" && r.n(-2,0,"ont") && r.n(-1,0,"pas")) return "D";
+		if (r.n(1,0,"sera")) return "CL";
+		if (r.w=="en" && r.n(1,0,"ont")) return "CL";
+		if (r.w=="devant" && r.n(1,1,"ADV")) return "V";
+		if (r.w=="plus-d'" && r.n(-1,1,"V")) return "ADV";
+		if (r.n(1,1,"C") && r.n(2,1,"CL")) {
+			if (r.w=="pour" && r.n(1,0,"que")) return "P";
 			return "ADV";
 		}
-		if (reader.word === "comme" && reader.nextWord1("pour")) {
-			if (reader.prevTag2("P")) return "P";
+		if (r.w=="comme" && r.n(1,0,"pour")) {
+			if (r.n(-2,1,"P")) return "P";
 			return "C";
 		}
-		if (reader.word === "comme" && reader.nextWord1("d'")) return "C";
-		if (reader.prevTag2("N") && reader.prevTag1("PONCT") && reader.word === "d'-où") return "C";
-		if (reader.word === "d'" && reader.nextWord2("investissements")) return "D";
-		if (reader.nextWord1("longs")) return "D";
-		if (reader.prevWord1("connu") && reader.word === "de") return "D";
-		if (reader.prevWord1("lorsque")) return "D";
-		if (reader.prevWord1("subir")) return "D";
-		if (reader.prevWord2("voit") && reader.word === "de") return "D";
-		if (reader.prevWord1("et") && reader.word === "de" && reader.nextWord1("nouveaux")) return "D";
-		if (reader.prevWord1("sur")) return "D";
-		if (reader.prevWord1("enfin") && reader.word === "des") return "D";
-		if (reader.prevWord1("alors-que") && reader.word === "des") return "D";
-		if (reader.prevWord1("bref") && reader.word === "des") return "D";
-		if (reader.prevWord2("a") && reader.prevWord1("pas") && reader.word === "de") {
-			if (reader.prevTag1("ADV") && reader.nextTag1("PONCT")) return "P";
+		if (r.w=="comme" && r.n(1,0,"d'")) return "C";
+		if (r.w=="d'-où" && r.n(-2,1,"N") && r.n(-1,1,"PONCT")) return "C";
+		if (r.w=="d'" && r.n(2,0,"investissements")) return "D";
+		if (r.n(1,0,"longs")) return "D";
+		if (r.w=="de" && r.n(-1,0,"connu")) return "D";
+		if (r.n(-1,0,"lorsque")) return "D";
+		if (r.n(-1,0,"subir")) return "D";
+		if (r.w=="de" && r.n(-2,0,"voit")) return "D";
+		if (r.w=="de" && r.n(-1,0,"et") && r.n(1,0,"nouveaux")) return "D";
+		if (r.n(-1,0,"sur")) return "D";
+		if (r.w=="des" && r.n(-1,0,"enfin")) return "D";
+		if (r.w=="des" && r.n(-1,0,"alors-que")) return "D";
+		if (r.w=="des" && r.n(-1,0,"bref")) return "D";
+		if (r.w=="de" && r.n(-2,0,"a") && r.n(-1,0,"pas")) {
+			if (r.n(-1,1,"ADV") && r.n(1,1,"PONCT")) return "P";
 			return "D";
 		}
-		if (reader.prevWord1("par") && reader.word === "du") return "D";
-		if (reader.prevTag1("P") && reader.word === "de" && reader.nextTag1("ADV")) return "D";
-		if (reader.word === "en" && reader.nextWord1("viennent")) return "CL";
-		if (reader.word === "en" && reader.nextWord1("témoigne")) return "CL";
-		if (reader.word === "en" && reader.nextWord1("fut")) return "CL";
-		if (reader.prevWord1("peut")) {
-			if (reader.prevWord2("elle") && reader.word === "en") return "P";
+		if (r.w=="du" && r.n(-1,0,"par")) return "D";
+		if (r.w=="de" && r.n(-1,1,"P") && r.n(1,1,"ADV")) return "D";
+		if (r.w=="en" && r.n(1,0,"viennent")) return "CL";
+		if (r.w=="en" && r.n(1,0,"témoigne")) return "CL";
+		if (r.w=="en" && r.n(1,0,"fut")) return "CL";
+		if (r.n(-1,0,"peut")) {
+			if (r.w=="en" && r.n(-2,0,"elle")) return "P";
 			return "CL";
 		}
-		if (reader.word === "en" && reader.nextWord1("seraient")) return "CL";
-		if (reader.word === "A" && reader.nextTag1("PONCT")) return "N";
-		if (reader.prevWord1("décisions") && reader.word === "concernant") return "V";
+		if (r.w=="en" && r.n(1,0,"seraient")) return "CL";
+		if (r.w=="A" && r.n(1,1,"PONCT")) return "N";
+		if (r.w=="concernant" && r.n(-1,0,"décisions")) return "V";
 		return "P";
 	}
-	if (reader.tag === "V") {
-		if (reader.prevWord1("du")) return "N";
-		if (reader.prevWord1("un")) {
-			if (reader.prevWord2("l'")) return "V";
-			if (reader.prevWord2("L'")) return "V";
+	if (r.t=="V") {
+		if (r.n(-1,0,"du")) return "N";
+		if (r.n(-1,0,"un")) {
+			if (r.n(-2,0,"l'")) return "V";
+			if (r.n(-2,0,"L'")) return "V";
 			return "N";
 		}
-		if (reader.prevTag2("P") && reader.prevTag1("D") && reader.word === "est") {
-			if (reader.prevWord2("comme") && reader.prevWord1("l'") && reader.word === "est") return "V";
+		if (r.w=="est" && r.n(-2,1,"P") && r.n(-1,1,"D")) {
+			if (r.w=="est" && r.n(-2,0,"comme") && r.n(-1,0,"l'")) return "V";
 			return "N";
 		}
-		if (reader.prevTag1("D") && reader.word === "été") return "N";
-		if (reader.prevWord1("des")) return "N";
-		if (reader.prevTag1("D") && reader.word === "fait") {
-			if (reader.prevTag2("CL") && reader.prevTag1("D")) return "V";
-			if (reader.prevWord1("le") && reader.word === "fait" && reader.nextWord1("remarquer")) return "V";
-			if (reader.prevWord2("ne")) return "V";
+		if (r.w=="été" && r.n(-1,1,"D")) return "N";
+		if (r.n(-1,0,"des")) return "N";
+		if (r.w=="fait" && r.n(-1,1,"D")) {
+			if (r.n(-2,1,"CL") && r.n(-1,1,"D")) return "V";
+			if (r.w=="fait" && r.n(-1,0,"le") && r.n(1,0,"remarquer")) return "V";
+			if (r.n(-2,0,"ne")) return "V";
 			return "N";
 		}
-		if (reader.prevTag1("D") && reader.word === "reste") return "N";
-		if (reader.prevWord1("une")) {
-			if (reader.prevWord2("l'")) return "V";
+		if (r.w=="reste" && r.n(-1,1,"D")) return "N";
+		if (r.n(-1,0,"une")) {
+			if (r.n(-2,0,"l'")) return "V";
 			return "N";
 		}
-		if (reader.prevTag1("D") && reader.word === "risque") return "N";
-		if (reader.prevWord1("an") && reader.word === "passé") return "A";
-		if (reader.prevTag1("P") && reader.word === "risque") return "N";
-		if (reader.prevTag1("D") && reader.word === "sommes") return "N";
-		if (reader.prevTag1("D") && reader.word === "prise") return "N";
-		if (reader.prevWord1("son")) return "N";
-		if (reader.prevWord1("au")) return "N";
-		if (reader.prevTag1("N") && reader.word === "précise" && reader.nextTag1("P")) return "A";
-		if (reader.prevTag1("D") && reader.word === "porte") return "N";
-		if (reader.prevTag1("D") && reader.word === "passé") return "N";
-		if (reader.prevTag1("D") && reader.word === "permis") return "N";
-		if (reader.prevTag1("D") && reader.word === "limite") return "N";
-		if (reader.prevWord1("le") && reader.word === "devenir") return "N";
-		if (reader.prevTag1("P") && reader.word === "été") return "N";
-		if (reader.prevWord1("ses")) return "N";
-		if (reader.prevWord1("aux")) return "N";
-		if (reader.prevWord1("cette")) return "N";
-		if (reader.prevTag1("D") && reader.word === "acquis") return "N";
-		if (reader.prevTag1("N") && reader.word === "fixe") return "A";
-		if (reader.prevWord1("filiale") && reader.word === "spécialisée") return "A";
-		if (reader.word === "continue" && reader.nextTag1("P") && reader.nextTag2("N")) return "A";
-		if (reader.prevTag1("D") && reader.word === "représentant") return "N";
-		if (reader.prevTag2("N") && reader.prevTag1("P") && reader.word === "inscrits") return "N";
-		if (reader.prevTag1("D") && reader.word === "devoir") return "N";
-		if (reader.prevWord1("la") && reader.nextWord1("des")) return "N";
-		if (reader.prevWord1("sa")) return "N";
-		if (reader.prevWord1("L'")) return "N";
-		if (reader.prevWord1("La")) return "N";
-		if (reader.prevTag1("P") && reader.word === "garde") return "N";
-		if (reader.prevTag1("N") && reader.word === "intéressés") return "A";
-		if (reader.prevTag1("D") && reader.word === "savoir") return "N";
-		if (reader.prevTag1("D") && reader.word === "intéressés" && reader.nextTag1("PONCT")) return "N";
-		if (reader.prevTag1("A") && reader.word === "élève") return "N";
-		if (reader.prevTag2("D") && reader.prevTag1("A") && reader.word === "risque") return "N";
-		if (reader.prevWord1("René")) return "N";
-		if (reader.prevWord1("d'") && reader.word === "est") return "N";
-		if (reader.prevWord2("explique")) return "N";
-		if (reader.prevWord1("le") && reader.nextWord1("des")) return "N";
-		if (reader.prevTag1("D") && reader.word === "venue") return "N";
-		if (reader.prevTag1("P") && reader.word === "reste" && reader.nextTag1("PONCT")) return "N";
-		if (reader.prevTag1("ADV") && reader.word === "démunis" && reader.nextTag1("C")) return "A";
-		if (reader.prevWord1("la") && reader.word === "présente") return "A";
-		if (reader.prevWord2("les") && reader.word === "connus") return "A";
-		if (reader.prevWord1("syndical")) return "A";
-		if (reader.word === "présente" && reader.nextTag1("PONCT") && reader.nextTag2("D")) return "A";
-		if (reader.word === "chargé" && reader.nextWord1("de") && reader.nextWord2("l'")) return "A";
-		if (reader.word === "défini" && reader.nextTag1("PONCT")) return "A";
-		if (reader.prevWord2("une") && reader.word === "précise") return "A";
-		if (reader.suffixL4("vÃ©e")) return "A";
-		if (reader.word === "satisfait" && reader.nextTag1("PONCT")) return "A";
-		if (reader.prevWord1("la") && reader.nextWord1("qu'")) return "N";
-		if (reader.prevTag1("D") && reader.word === "retenue") return "N";
-		if (reader.prevWord1("Michel")) return "N";
-		if (reader.prevTag1("PONCT") && reader.word === "invité") return "N";
-		if (reader.prevTag1("D") && reader.word === "blessés" && reader.nextTag1("PONCT")) return "N";
-		if (reader.prevTag1("D") && reader.word === "prises" && reader.nextTag1("P")) return "N";
-		if (reader.prevWord1("la") && reader.nextWord1("(")) return "N";
-		if (reader.prevWord1("Une")) return "N";
-		if (reader.prevWord1("Le")) return "N";
-		if (reader.prevWord1("le") && reader.nextWord1("du")) return "N";
-		if (reader.word === "conserve" && reader.nextWord1(",")) return "N";
-		if (reader.prevWord1("l'") && reader.nextWord1("des")) return "N";
-		if (reader.prevWord1("M.")) return "N";
-		if (reader.prevWord1("quelques")) {
-			if (reader.suffixL2("us")) return "A";
+		if (r.w=="risque" && r.n(-1,1,"D")) return "N";
+		if (r.w=="passé" && r.n(-1,0,"an")) return "A";
+		if (r.w=="risque" && r.n(-1,1,"P")) return "N";
+		if (r.w=="sommes" && r.n(-1,1,"D")) return "N";
+		if (r.w=="prise" && r.n(-1,1,"D")) return "N";
+		if (r.n(-1,0,"son")) return "N";
+		if (r.n(-1,0,"au")) return "N";
+		if (r.w=="précise" && r.n(-1,1,"N") && r.n(1,1,"P")) return "A";
+		if (r.w=="porte" && r.n(-1,1,"D")) return "N";
+		if (r.w=="passé" && r.n(-1,1,"D")) return "N";
+		if (r.w=="permis" && r.n(-1,1,"D")) return "N";
+		if (r.w=="limite" && r.n(-1,1,"D")) return "N";
+		if (r.w=="devenir" && r.n(-1,0,"le")) return "N";
+		if (r.w=="été" && r.n(-1,1,"P")) return "N";
+		if (r.n(-1,0,"ses")) return "N";
+		if (r.n(-1,0,"aux")) return "N";
+		if (r.n(-1,0,"cette")) return "N";
+		if (r.w=="acquis" && r.n(-1,1,"D")) return "N";
+		if (r.w=="fixe" && r.n(-1,1,"N")) return "A";
+		if (r.w=="spécialisée" && r.n(-1,0,"filiale")) return "A";
+		if (r.w=="continue" && r.n(1,1,"P") && r.n(2,1,"N")) return "A";
+		if (r.w=="représentant" && r.n(-1,1,"D")) return "N";
+		if (r.w=="inscrits" && r.n(-2,1,"N") && r.n(-1,1,"P")) return "N";
+		if (r.w=="devoir" && r.n(-1,1,"D")) return "N";
+		if (r.n(-1,0,"la") && r.n(1,0,"des")) return "N";
+		if (r.n(-1,0,"sa")) return "N";
+		if (r.n(-1,0,"L'")) return "N";
+		if (r.n(-1,0,"La")) return "N";
+		if (r.w=="garde" && r.n(-1,1,"P")) return "N";
+		if (r.w=="intéressés" && r.n(-1,1,"N")) return "A";
+		if (r.w=="savoir" && r.n(-1,1,"D")) return "N";
+		if (r.w=="intéressés" && r.n(-1,1,"D") && r.n(1,1,"PONCT")) return "N";
+		if (r.w=="élève" && r.n(-1,1,"A")) return "N";
+		if (r.w=="risque" && r.n(-2,1,"D") && r.n(-1,1,"A")) return "N";
+		if (r.n(-1,0,"René")) return "N";
+		if (r.w=="est" && r.n(-1,0,"d'")) return "N";
+		if (r.n(-2,0,"explique")) return "N";
+		if (r.n(-1,0,"le") && r.n(1,0,"des")) return "N";
+		if (r.w=="venue" && r.n(-1,1,"D")) return "N";
+		if (r.w=="reste" && r.n(-1,1,"P") && r.n(1,1,"PONCT")) return "N";
+		if (r.w=="démunis" && r.n(-1,1,"ADV") && r.n(1,1,"C")) return "A";
+		if (r.w=="présente" && r.n(-1,0,"la")) return "A";
+		if (r.w=="connus" && r.n(-2,0,"les")) return "A";
+		if (r.n(-1,0,"syndical")) return "A";
+		if (r.w=="présente" && r.n(1,1,"PONCT") && r.n(2,1,"D")) return "A";
+		if (r.w=="chargé" && r.n(1,0,"de") && r.n(2,0,"l'")) return "A";
+		if (r.w=="défini" && r.n(1,1,"PONCT")) return "A";
+		if (r.w=="précise" && r.n(-2,0,"une")) return "A";
+		if (r.s(-4,"vÃ©e")) return "A";
+		if (r.w=="satisfait" && r.n(1,1,"PONCT")) return "A";
+		if (r.n(-1,0,"la") && r.n(1,0,"qu'")) return "N";
+		if (r.w=="retenue" && r.n(-1,1,"D")) return "N";
+		if (r.n(-1,0,"Michel")) return "N";
+		if (r.w=="invité" && r.n(-1,1,"PONCT")) return "N";
+		if (r.w=="blessés" && r.n(-1,1,"D") && r.n(1,1,"PONCT")) return "N";
+		if (r.w=="prises" && r.n(-1,1,"D") && r.n(1,1,"P")) return "N";
+		if (r.n(-1,0,"la") && r.n(1,0,"(")) return "N";
+		if (r.n(-1,0,"Une")) return "N";
+		if (r.n(-1,0,"Le")) return "N";
+		if (r.n(-1,0,"le") && r.n(1,0,"du")) return "N";
+		if (r.w=="conserve" && r.n(1,0,",")) return "N";
+		if (r.n(-1,0,"l'") && r.n(1,0,"des")) return "N";
+		if (r.n(-1,0,"M.")) return "N";
+		if (r.n(-1,0,"quelques")) {
+			if (r.s(-2,"us")) return "A";
 			return "N";
 		}
-		if (reader.prevTag1("V") && reader.word === "voici") return "P";
+		if (r.w=="voici" && r.n(-1,1,"V")) return "P";
 		return "V";
 	}
-	if (reader.tag === "ET") return "ET";
-	if (reader.tag === "PONCT") {
-		if (reader.word === "-" && reader.nextWord2("%")) {
-			if (reader.prevTag1("N") && reader.word === "-") return "PONCT";
-			if (reader.prevWord2("lundi") && reader.word === "-") return "ADV";
-			if (reader.word === "-" && reader.nextWord1("0-,-4") && reader.nextWord2("%")) return "ADV";
-			if (reader.word === "-" && reader.nextWord1("9")) return "ADV";
-			if (reader.prevWord2("francs")) return "ADV";
-			if (reader.prevTag1("A")) return "PONCT";
+	if (r.t=="ET") return "ET";
+	if (r.t=="PONCT") {
+		if (r.w=="-" && r.n(2,0,"%")) {
+			if (r.w=="-" && r.n(-1,1,"N")) return "PONCT";
+			if (r.w=="-" && r.n(-2,0,"lundi")) return "ADV";
+			if (r.w=="-" && r.n(1,0,"0-,-4") && r.n(2,0,"%")) return "ADV";
+			if (r.w=="-" && r.n(1,0,"9")) return "ADV";
+			if (r.n(-2,0,"francs")) return "ADV";
+			if (r.n(-1,1,"A")) return "PONCT";
 			return "P";
 		}
-		if (reader.prevWord1("km") && reader.word === "/") return "C";
-		if (reader.word === "/" && reader.nextWord1("jour")) return "P";
-		if (reader.prevWord1("bls")) return "P";
+		if (r.w=="/" && r.n(-1,0,"km")) return "C";
+		if (r.w=="/" && r.n(1,0,"jour")) return "P";
+		if (r.n(-1,0,"bls")) return "P";
 		return "PONCT";
 	}
-	return "NN";
+	return false;
 };

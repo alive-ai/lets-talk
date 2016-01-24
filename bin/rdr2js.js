@@ -86,29 +86,55 @@ reader.on('line', function(line) {
 			' * Licensed under MIT by Ioan CHIRIAC',
 			' * Based on the great work of Dat Quoc Nguyen, Dai Quoc Nguyen, Dang Duc Pham and Son Bao Pham',
 			' */',
-			'module.exports = function(reader) {',
+			'module.exports = function(r) {',
 			''
 			].join('\n')
 		); 
 		for(var i in rootNode.childs) {
 			fs.writeSync(fd, visitNode(rootNode.childs[i], '\t'));
 		}
-		fs.writeSync(fd, '\treturn "NN";\n};');
+		fs.writeSync(fd, '\treturn false;\n};');
 	})
 });
 
 function visitNode(node, tab) {
 	var conditions = [];
 	for(var i = 0; i < node.conditions.length; i++) {
-		switch(node.conditions[i][1]) {
+		var func = node.conditions[i][1];
+		var value = '"' + node.conditions[i][2] + '"';
+		switch(func) {
 			// avoid a call instruction (these should be dirrectly defined)
 			case 'word':
+				conditions.unshift('r.w==' + value); // more rapid to resolve than functions
+				break;
 			case 'tag':
-				conditions.push('reader.' + node.conditions[i][1] + ' === "' + node.conditions[i][2] + '"');			
+				conditions.unshift('r.t==' + value); // more rapid to resolve than functions
 				break;
 			// lazy lookup calls
 			default:
-				conditions.push('reader.' + node.conditions[i][1] + '("' + node.conditions[i][2] + '")');			
+				var prefix = func.substring(0, 4);
+				var isTag = func.substring(4, 7) === 'Tag';
+				var isWord = !isTag && func.substring(4, 8) === 'Word';
+				var isSuffix = !isTag && !isWord && func.substring(0, 7) === 'suffixL';
+				var isPrefix = !isSuffix && !isTag && !isWord && func.substring(0, 7) === 'prefixL';
+				if (isTag || isWord) {
+					var multiplier = 0;
+					var size = func.substring( isTag ? 7 : 8 );
+					if (prefix === 'next') {
+						multiplier = 1;
+					} else if (prefix === 'prev') {
+						multiplier = -1;
+					} else {
+						throw new Error('Unable to handle check on ' + func );
+					}
+					conditions.push('r.n('+(size * multiplier)+','+(isTag ? 1 : 0)+',' + value + ')');				
+				} else if (isSuffix || isPrefix) {
+					var multiplier = isSuffix ? -1 : 1;
+					var size = func.substring(7);
+					conditions.push('r.s('+(size * multiplier)+',' + value + ')');
+				} else {
+					throw new Error('Unable to handle check on ' + func );
+				}
 		}
 	}
 	if (node.childs.length > 0) {

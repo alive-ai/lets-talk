@@ -58,12 +58,12 @@ reader.on('line', function(line) {
 			''
 			].join('\n')
 		); 
-		fs.writeSync(fd, 'module.export = {\n\t"startsWith":');
+		fs.writeSync(fd, 'module.exports = {\n\t"startsWith":');
 		fs.writeSync(fd, JSON.stringify(starters));
 		fs.writeSync(fd, ',\n\t"endsWith":');
 		fs.writeSync(fd, JSON.stringify(enders));
 		fs.writeSync(fd, ',\n\t"dictionnary":');
 		fs.writeSync(fd, JSON.stringify(dico));
-		fs.writeSync(fd, '};');
+		fs.writeSync(fd, '\n};');
 	});
 });
