@@ -19,4 +19,4 @@ When you use the sentence break like ";" or ":" then it will result in two sente
 
 # 2. Tagging words
 
-
+Each word will be initialized with his commonly used grammatical function. The words are then corrected by the rdr definitions.
