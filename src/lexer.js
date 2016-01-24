@@ -65,7 +65,7 @@ function getWordsItems(text) {
 /**
  * Scan a text
  */
-module.exports = function(string) {
+module.exports = function(string, lang) {
 	var words = getWordsItems(string);
 	var sentences = [
 		{
