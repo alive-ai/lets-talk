@@ -1,7 +1,7 @@
 # lets-talk
 
 Lets-Talk is a language cognition framework written en javascript. The dictionnary is based on the work of 
-Dat Quoc Nguyen, Dai Quoc Nguyen, Dang Duc Pham and Son Bao Pham published at http://rdrpostagger.sourceforge.net/.
+Dat Quoc Nguyen, Dai Quoc Nguyen, Dang Duc Pham and Son Bao Pham published at https://github.com/datquocnguyen/RDRPOSTagger.
 
 # 1. The tokenizer :
 
